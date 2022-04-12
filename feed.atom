@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">消忧录</title>
+  <id>https://lyyl.me/</id>
+  <updated>2021-09-07T00:00:00Z</updated>
+  <link href="https://lyyl.me/" />
+  <link href="https://lyyl.me/" rel="self" />
+  <subtitle type="text">消忧录 Atom Feed</subtitle>
+  <generator>Werkzeug</generator>
+  <entry xml:base="https://lyyl.me/">
+    <title type="text">Hackers are painters</title>
+    <id>https://lyyl.me/posts/hackers</id>
+    <updated>2017-07-03T00:00:00Z</updated>
+    <published>2017-07-03T00:00:00Z</published>
+    <link href="https://lyyl.me/posts/hackers" />
+    <author>
+      <name>YangLiu</name>
+    </author>
+    <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;
+  &lt;title&gt;-&lt;/title&gt;
+  &lt;style&gt;
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li &gt; ol, li &gt; ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  &lt;/style&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;When I finished grad school in computer science I went to art school to study painting. A lot of people seemed surprised that someone interested in computers would also be interested in painting. They seemed to think that hacking and painting were very different kinds of work– that hacking was cold, precise, and methodical, and that painting was the frenzied expression of some primal urge.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-0&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-0&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;This Paul Graham essay is derived from a guest lecture at Harvard, which incorporated an earlier talk at Northeastern.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Both of these images are wrong. Hacking and painting have a lot in common. In fact, of all the different types of people I’ve known, hackers and painters are among the most alike.&lt;/p&gt;
+&lt;p&gt;What hackers and painters have in common is that they’re both makers. Along with composers, architects, and writers, what hackers and painters are trying to do is make good things. They’re not doing research per se, though if in the course of trying to make good things they discover some new technique, so much the better.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-1&quot; class=&quot;margin-toggle&quot;&gt;&amp;#8853;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-1&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;marginnote&quot;&gt;This is a margin note. Notice there isn’t a number preceding the note.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hackers are painters.&lt;br /&gt;
+— Paul Graham&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’ve never liked the term “computer science.” The main reason I don’t like it is that there’s no such thing. Computer science is a grab bag of tenuously related areas thrown together by an accident of history, like Yugoslavia. At one end you have people who are really mathematicians, but call what they’re doing computer science so they can get DARPA grants. &lt;span class=&quot;citation&quot; data-cites=&quot;clark1988design&quot;&gt;[&lt;a href=&quot;#ref-clark1988design&quot; role=&quot;doc-biblioref&quot;&gt;1&lt;/a&gt;]&lt;/span&gt; In the middle you have people working on something like the natural history of computers– studying the behavior of algorithms for routing data through networks, for example. And then at the other extreme you have the hackers, who are trying to write interesting software, and for whom computers are just a medium of expression, as concrete is for architects or paint for painters. It’s as if mathematicians, physicists, and architects all had to be in the same department. See eq. 1.&lt;/p&gt;
+&lt;p&gt;&lt;span id=&quot;eq:euler&quot;&gt;&lt;math display=&quot;block&quot; xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mspace width=&quot;2.0em&quot;&gt;&lt;/mspace&gt;&lt;mo stretchy=&quot;false&quot; form=&quot;prefix&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot; form=&quot;postfix&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt; e^{i\pi} - 1 = 0 \qquad(1)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes what the hackers do is called “software engineering,” but this term is just as misleading. Good software designers are no more engineers than architects are. The border between architecture and engineering is not sharply defined, but it’s there. It falls between what and how: architects decide what to do, and engineers figure out how to do it.&lt;/p&gt;
+&lt;p&gt;What and how should not be kept too separate. You’re asking for trouble if you try to decide what to do without understanding how to do it. But hacking can certainly be more than just deciding how to implement some spec. At its best, it’s creating the spec– though it turns out the best way to do that is to implement it.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/static/img/bruegel.jpg&quot; alt=&quot;Hackers and painters; by Pieter Bruegel.&quot; /&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;Hackers and painters; by Pieter Bruegel.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Perhaps one day “computer science” will, like Yugoslavia, get broken up into its component parts. That might be a good thing. Especially if it meant independence for my native land, hacking.&lt;/p&gt;
+&lt;p&gt;Bundling all these different types of work together in one department may be convenient administratively, but it’s confusing intellectually. That’s the other reason I don’t like the name “computer science.” Arguably the people in the middle are doing something like an experimental science. But the people at either end, the hackers and the mathematicians, are not actually doing science. See tbl. 1.&lt;/p&gt;
+&lt;div id=&quot;tbl:demo&quot;&gt;
+&lt;table&gt;
+&lt;caption&gt;Table 1: A demo table.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Tables&lt;/th&gt;
+&lt;th style=&quot;text-align: center;&quot;&gt;Are&lt;/th&gt;
+&lt;th style=&quot;text-align: right;&quot;&gt;Cool&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;col 3 is&lt;/td&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;right-aligned&lt;/td&gt;
+&lt;td style=&quot;text-align: right;&quot;&gt;1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;col 2 is&lt;/td&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;centered&lt;/td&gt;
+&lt;td style=&quot;text-align: right;&quot;&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;zebra stripes&lt;/td&gt;
+&lt;td style=&quot;text-align: center;&quot;&gt;are neat&lt;/td&gt;
+&lt;td style=&quot;text-align: right;&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The mathematicians don’t seem bothered by this. They happily set to work proving theorems like the other mathematicians over in the math department, and probably soon stop noticing that the building they work in says “computer science” on the outside. But for the hackers this label is a problem. If what they’re doing is called science, it makes them feel they ought to be acting scientific. So instead of doing what they really want to do, which is to design beautiful software, hackers in universities and research labs feel they ought to be writing research papers.&lt;/p&gt;
+&lt;h1 class=&quot;unnumbered&quot; id=&quot;bibliography&quot;&gt;References&lt;/h1&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references csl-bib-body&quot; role=&quot;doc-bibliography&quot;&gt;
+&lt;div id=&quot;ref-clark1988design&quot; class=&quot;csl-entry&quot; role=&quot;doc-biblioentry&quot;&gt;
+&lt;div class=&quot;csl-left-margin&quot;&gt;1. &lt;/div&gt;&lt;div class=&quot;csl-right-inline&quot;&gt;Clark, D.: The design philosophy of the DARPA internet protocols. ACM SIGCOMM Computer Communication Review. 18, 106–114 (1988).&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lyyl.me/">
+    <title type="text">C++的拷贝与移动</title>
+    <id>https://lyyl.me/posts/cpp_copy_and_move</id>
+    <updated>2021-09-07T00:00:00Z</updated>
+    <published>2021-09-07T00:00:00Z</published>
+    <link href="https://lyyl.me/posts/cpp_copy_and_move" />
+    <author>
+      <name>YangLiu</name>
+    </author>
+    <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;
+  &lt;title&gt;-&lt;/title&gt;
+  &lt;style&gt;
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li &gt; ol, li &gt; ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre &gt; code.sourceCode { white-space: pre; position: relative; }
+    pre &gt; code.sourceCode &gt; span { display: inline-block; line-height: 1.25; }
+    pre &gt; code.sourceCode &gt; span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode &gt; span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre &gt; code.sourceCode { white-space: pre-wrap; }
+    pre &gt; code.sourceCode &gt; span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code &gt; span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code &gt; span &gt; a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre &gt; code.sourceCode &gt; span &gt; a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  &lt;/style&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h5 id=&quot;序&quot;&gt;序&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;试想，搬家的时候是把家里的东西直接搬到新家去，而不是将所有东西拷贝一份（重买）再放到新家、再把原来的东西全部扔掉（销毁），这是非常反人类的一件事情。               —— —— 《现代C++教程》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为一名初级开发者，每当你向一个函数传入某个参数的时候，是否习惯了 &lt;code&gt;input -&amp;gt; blackbox -&amp;gt; output&lt;/code&gt; 这样的黑盒思维，并认为“我不需要关心函数内部到底发生了什么，只需考虑调用什么接口能帮我实现什么样的需求就好了。”、“我可以按着官方文档的说明传参并顺利获取返回值即可，能 work 就行，别的我管不着。”… …&lt;/p&gt;
+&lt;p&gt;假如你是一名单纯的 Pythonist，这样或许还情有可原(原因在下文会提到)。但作为一名 C/C++ 程序员乃至系统编程人员，这种思维直接证明了“确实，你是个新手”，且并未领略到 C++ 这门优秀语言的真正优势。”&lt;/p&gt;
+&lt;p&gt;这篇文章记录了自己这一周以来学习到的有关“左右值”、“拷贝语义”、“移动语义”的知识，以及可以针对性地考虑使用一些 trick，这可以帮助我们优化程序性能。&lt;/p&gt;
+&lt;h6 id=&quot;实验环境&quot;&gt;实验环境&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;x86-64 gcc 10.1&lt;/li&gt;
+&lt;li&gt;汇编代码由在线编译平台 &lt;u&gt;&lt;a href=&quot;https://godbolt.org/&quot;&gt;Compiler Explorer&lt;/a&gt;&lt;/u&gt; 生成。&lt;/li&gt;
+&lt;li&gt;涉及的编译标志位：-std=c++11, -std=c++17, -fno-elide-constructors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;prior-knowledge&quot;&gt;Prior knowledge&lt;/h5&gt;
+&lt;p&gt;本文假定读者已经掌握了面向对象以及 C++ 的构造/析构函数、运算符重载等基本概念。&lt;/p&gt;
+&lt;h6 id=&quot;区别构造和赋值&quot;&gt;区别构造和赋值&lt;/h6&gt;
+&lt;h6 id=&quot;一样的结果不一样的行为&quot;&gt;一样的结果&amp;amp;不一样的行为&lt;/h6&gt;
+&lt;p&gt;为了便于理解后面的内容，我们定义了一个 Widget 类。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb1&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb1-1&quot;&gt;&lt;a href=&quot;#cb1-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; Widget &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-2&quot;&gt;&lt;a href=&quot;#cb1-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-3&quot;&gt;&lt;a href=&quot;#cb1-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;cf&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;                       &lt;span class=&quot;co&quot;&gt;// 默认构造函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-4&quot;&gt;&lt;a href=&quot;#cb1-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;bool&lt;/span&gt; sign&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; isAvailable&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;sign&lt;span class=&quot;op&quot;&gt;){};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 普通构造函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-5&quot;&gt;&lt;a href=&quot;#cb1-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; isAvailable&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;w&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;isAvailable&lt;span class=&quot;op&quot;&gt;){};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 拷贝构造函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-6&quot;&gt;&lt;a href=&quot;#cb1-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; isAvailable&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;exchange&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;w&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;isAvailable&lt;span class=&quot;op&quot;&gt;)){};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 移动构造函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-7&quot;&gt;&lt;a href=&quot;#cb1-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 拷贝赋值函数(操作符)&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-8&quot;&gt;&lt;a href=&quot;#cb1-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        isAvailable &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;isAvailable&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-9&quot;&gt;&lt;a href=&quot;#cb1-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-10&quot;&gt;&lt;a href=&quot;#cb1-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-11&quot;&gt;&lt;a href=&quot;#cb1-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;=(&lt;/span&gt;Widget&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 移动赋值函数(操作符)&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-12&quot;&gt;&lt;a href=&quot;#cb1-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        isAvailable &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; w&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;isAvailable&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-13&quot;&gt;&lt;a href=&quot;#cb1-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-14&quot;&gt;&lt;a href=&quot;#cb1-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-15&quot;&gt;&lt;a href=&quot;#cb1-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;~&lt;/span&gt;Widget&lt;span class=&quot;op&quot;&gt;(){};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 析构函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-16&quot;&gt;&lt;a href=&quot;#cb1-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-17&quot;&gt;&lt;a href=&quot;#cb1-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;bool&lt;/span&gt; isAvailable &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-18&quot;&gt;&lt;a href=&quot;#cb1-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; s&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-19&quot;&gt;&lt;a href=&quot;#cb1-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;接着，咱们来创建几个 Widget 类对象&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb2&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb2-1&quot;&gt;&lt;a href=&quot;#cb2-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-2&quot;&gt;&lt;a href=&quot;#cb2-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget w1&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;        &lt;span class=&quot;co&quot;&gt;// 1&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-3&quot;&gt;&lt;a href=&quot;#cb2-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget w2&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 2&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-4&quot;&gt;&lt;a href=&quot;#cb2-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget w3&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;    &lt;span class=&quot;co&quot;&gt;// 3&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-5&quot;&gt;&lt;a href=&quot;#cb2-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    Widget w4 &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; w3&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;co&quot;&gt;// 4&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-6&quot;&gt;&lt;a href=&quot;#cb2-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    w4 &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; w2&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;          &lt;span class=&quot;co&quot;&gt;// 5&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-7&quot;&gt;&lt;a href=&quot;#cb2-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;那么问题来了，上面这四种对象的创建方式，他们有什么异同呢？&lt;/p&gt;
+&lt;p&gt;首先，你已经观察到我们在 Widget 类中声明并实现了7个特殊成员函数，从上到下依次是：默认构造函数，普通构造函数，拷贝构造函数，拷贝赋值函数，析构函数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第1种方式创建了新对象 w1，且在创建时没有任何的入参，调用的是默认构造函数；&lt;/li&gt;
+&lt;li&gt;第2种方式根据传入的一个布尔字面量 &lt;code&gt;true&lt;/code&gt; 创建了新对象 w2，调用的是普通构造函数；&lt;/li&gt;
+&lt;li&gt;第3种方式传入了我们先前创建的 w1 对象，根据现有对象构造新对象 w3，调用了拷贝构造函数；&lt;/li&gt;
+&lt;li&gt;第4种方式根据等号右边的现有对象 w3 创建了新对象 w4，同样调用了拷贝构造函数；&lt;/li&gt;
+&lt;li&gt;第5种方式看似与第四种方式相同，但不难发现它其实是根据已有对象对同样是已有对象 w4 的重新赋值，因此调用的是拷贝赋值函数，而非拷贝构造函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;怎么 C++ 创建一个对象有这么多花里胡哨的方式？ 的确，最初看到这几个语句的时候我也很疑惑，但随着学习的深入，越来越认同“C++ 给了开发者更多的自由，也给了它们更多的心智负担。”但讲到的这部分内容仅仅是给本文开了个头，暂且先带着疑惑，继续读下去吧~&lt;/p&gt;
+&lt;p&gt;这里引出了第一个知识点：构造行为和赋值行为。第3和第4条语句的行为其实是完全等效的，实际调用的都是 Widget 的拷贝构造函数 &lt;code&gt;Widget(const Widget&amp;amp; w)&lt;/code&gt; 。而第5条语句则是先前已经建立了 w2 与 w4 对象，现在是将 w2 对象赋给 w4 对象，属于赋值行为。&lt;/p&gt;
+&lt;p&gt;(n.b. 至此，如果你已经十分清楚上面这些语句为什么行为不同，就不用继续跟进下面的内容了。)&lt;/p&gt;
+&lt;h5 id=&quot;rule-of-threefivezero&quot;&gt;Rule of three/five/zero&lt;/h5&gt;
+&lt;p&gt;我们知道 C++11 是 C++ 发展历程中的一个重要版本，引入了许多现代编程语言特性。在 C++11 以前，只有 “Rule of three” 这种说法，C++11 以后，随着移动语义的引入，便扩展为 “Rule of five” 。&lt;/p&gt;
+&lt;p&gt;three 指的类内的三个特殊成员函数：拷贝构造、拷贝赋值和析构。我们上边讲的就是 Rule of three 的内容。&lt;/p&gt;
+&lt;p&gt;five 指的是在 three 的基础上引入移动语义(下文会讲)，增加了移动构造函数与移动赋值函数(操作符)，加上原来的3个一共就是5个特殊成员函数。程序员需要手动地显式声明与实现这5个特殊成员函数，因而得名 The rule of five。&lt;/p&gt;
+&lt;p&gt;zero 则站在 five 的对立面，也就是说：要么将5个特殊成员函数显式地定义清楚(显式地自定义实现 / 显式地设为默认 default / 显式地通过 delete 禁用)，实现 Rule of five；要么就 Rule of zero，干脆啥也不去定义、实现。&lt;/p&gt;
+&lt;h5 id=&quot;语义分类&quot;&gt;语义分类&lt;/h5&gt;
+&lt;h6 id=&quot;value-categories&quot;&gt;Value categories&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Each C++ expression (an operator with its operands, a literal, a variable name, etc.) is characterized by two independent properties: a type and a value categories. Each expression has some non-reference type, and each expression belongs to exactly one of the three primary value categories: prvalue, xvalue, and lvalue. &lt;br&gt;        —— —— cppreference/value categories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面这段话的意思是：每个 C++ 表达式都具有两个独立的属性，一个是类型 (type)，另一个是值类别 (value categories)，如：char, int, double 这些都是常见的 type；而 value categories 则包含了3种类别：左值、纯右值与将亡值。下面将简单介绍一下这几个类别的含义。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;拥有身份(glvalue)&lt;/th&gt;
+&lt;th&gt;不拥有身份&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td&gt;可移动 (rvalue)&lt;/td&gt;
+&lt;td&gt;xvalue&lt;/td&gt;
+&lt;td&gt;prvalue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td&gt;不可移动&lt;/td&gt;
+&lt;td&gt;lvalue&lt;/td&gt;
+&lt;td&gt;不存在&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class=&quot;heading&quot; id=&quot;左值lvalue&quot;&gt;左值(lvalue)&lt;/p&gt;
+&lt;p&gt;顾名思义左值是位于赋值符号=左边的值，准确地说，左值是在内存中有具体内存位置的值，是在表达式(e.g. 赋值表达式=)运算后依然存在的持久对象。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb3&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb3-1&quot;&gt;&lt;a href=&quot;#cb3-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-2&quot;&gt;&lt;a href=&quot;#cb3-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; num &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1055&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-3&quot;&gt;&lt;a href=&quot;#cb3-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;++&lt;/span&gt;num&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-4&quot;&gt;&lt;a href=&quot;#cb3-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; p_num &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt;num&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-5&quot;&gt;&lt;a href=&quot;#cb3-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-6&quot;&gt;&lt;a href=&quot;#cb3-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; access&lt;span class=&quot;op&quot;&gt;(){&lt;/span&gt; &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; num&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-7&quot;&gt;&lt;a href=&quot;#cb3-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;access&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-8&quot;&gt;&lt;a href=&quot;#cb3-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-9&quot;&gt;&lt;a href=&quot;#cb3-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; arr&lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]{};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-10&quot;&gt;&lt;a href=&quot;#cb3-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;arr&lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;];&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-11&quot;&gt;&lt;a href=&quot;#cb3-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-12&quot;&gt;&lt;a href=&quot;#cb3-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; foo&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-13&quot;&gt;&lt;a href=&quot;#cb3-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rr_foo &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; foo&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-14&quot;&gt;&lt;a href=&quot;#cb3-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-15&quot;&gt;&lt;a href=&quot;#cb3-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;struct&lt;/span&gt; A&lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_a&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-16&quot;&gt;&lt;a href=&quot;#cb3-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;A obj&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-17&quot;&gt;&lt;a href=&quot;#cb3-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;obj&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_a&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-18&quot;&gt;&lt;a href=&quot;#cb3-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;A&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; p_obj &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt;obj&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb3-19&quot;&gt;&lt;a href=&quot;#cb3-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;A&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; r_obj &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在上例中，不论是值类型变量 num，指针类型变量 p_num，类类型值对象 obj，类类型指针对象 p_obj，左值引用对象 r_obj，右值引用对象 rr_foo，它们都属于左值。&lt;/p&gt;
+&lt;p&gt;lvalue 具有以下特征： - 所有 glvalue 具有的特征 - 可以通过取址运算符获取其地址 - 可修改的左值可用作内建赋值和内建符合赋值运算符的左操作数 - 可以用来初始化左值引用（下文会讲）&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;纯右值prvalue&quot;&gt;纯右值(prvalue)&lt;/p&gt;
+&lt;p&gt;在 C++11 前，value categories 只划分为了左值和右值两种类型，C++11 以后，由于引入移动语义(又是它)的需要，又将右值细分为了纯右值和将亡值。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb4&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb4-1&quot;&gt;&lt;a href=&quot;#cb4-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dv&quot;&gt;1055&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-2&quot;&gt;&lt;a href=&quot;#cb4-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-3&quot;&gt;&lt;a href=&quot;#cb4-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-4&quot;&gt;&lt;a href=&quot;#cb4-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;fl&quot;&gt;1.0&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-5&quot;&gt;&lt;a href=&quot;#cb4-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-6&quot;&gt;&lt;a href=&quot;#cb4-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; a&lt;span class=&quot;op&quot;&gt;{},&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;{};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// both lvalues&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-7&quot;&gt;&lt;a href=&quot;#cb4-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;a &lt;span class=&quot;op&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-8&quot;&gt;&lt;a href=&quot;#cb4-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt;a&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-9&quot;&gt;&lt;a href=&quot;#cb4-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-10&quot;&gt;&lt;a href=&quot;#cb4-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;a&lt;span class=&quot;op&quot;&gt;++;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-11&quot;&gt;&lt;a href=&quot;#cb4-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;b&lt;span class=&quot;op&quot;&gt;--;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-12&quot;&gt;&lt;a href=&quot;#cb4-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-13&quot;&gt;&lt;a href=&quot;#cb4-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;a &lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-14&quot;&gt;&lt;a href=&quot;#cb4-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;a &lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-15&quot;&gt;&lt;a href=&quot;#cb4-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-16&quot;&gt;&lt;a href=&quot;#cb4-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-17&quot;&gt;&lt;a href=&quot;#cb4-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-18&quot;&gt;&lt;a href=&quot;#cb4-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;_Tp&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// prvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-19&quot;&gt;&lt;a href=&quot;#cb4-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-20&quot;&gt;&lt;a href=&quot;#cb4-20&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* 5. Lambda Expression */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb4-21&quot;&gt;&lt;a href=&quot;#cb4-21&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;[](&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; a&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;op&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;op&quot;&gt;;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;顾名思义，纯右值就是纯粹的右值，要么是纯粹的字面量，要么是求值结果相当于字面量或匿名临时对象。如上所示，例1和例2是原始字面量；例3属于运算表达式产生的临时变量；例4属于非引用返回的临时变量，在调用 func 函数后将返回一个值对象 obj ，这个值对象会通过拷贝构造函数在 main 函数内产生一个临时对象，这个临时对象属于纯右值；例5则是一个 Lambda 表达式，以上这些表达式在 C++ 里都称为纯右值。&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;将亡值xvalue&quot;&gt;将亡值(xvalue)&lt;/p&gt;
+&lt;p&gt;将亡值是即将被销毁（将亡值对象处于生命期的末尾），但却能够被移动的值。常见的将亡值有：由纯右值实体化创建的临时变量，函数内部将要被 return 的某个局部变量（在它生命的最后时刻）。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb5&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb5-1&quot;&gt;&lt;a href=&quot;#cb5-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;bool&lt;/span&gt; b &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// lvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-2&quot;&gt;&lt;a href=&quot;#cb5-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;b&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-3&quot;&gt;&lt;a href=&quot;#cb5-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;static_cast&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&amp;gt;(&lt;/span&gt;b&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-4&quot;&gt;&lt;a href=&quot;#cb5-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-5&quot;&gt;&lt;a href=&quot;#cb5-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; foo&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-6&quot;&gt;&lt;a href=&quot;#cb5-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;foo&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-7&quot;&gt;&lt;a href=&quot;#cb5-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-8&quot;&gt;&lt;a href=&quot;#cb5-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;struct&lt;/span&gt; foo &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_a&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-9&quot;&gt;&lt;a href=&quot;#cb5-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;foo&lt;span class=&quot;op&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_a&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-10&quot;&gt;&lt;a href=&quot;#cb5-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;foo&lt;span class=&quot;op&quot;&gt;{}.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_a&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-11&quot;&gt;&lt;a href=&quot;#cb5-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-12&quot;&gt;&lt;a href=&quot;#cb5-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; arr&lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]{};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-13&quot;&gt;&lt;a href=&quot;#cb5-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-14&quot;&gt;&lt;a href=&quot;#cb5-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;op&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;];&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-15&quot;&gt;&lt;a href=&quot;#cb5-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-16&quot;&gt;&lt;a href=&quot;#cb5-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]{}[&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;];&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// xvalue&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-17&quot;&gt;&lt;a href=&quot;#cb5-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-18&quot;&gt;&lt;a href=&quot;#cb5-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* nums 属于 xvalue */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-19&quot;&gt;&lt;a href=&quot;#cb5-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; create&lt;span class=&quot;op&quot;&gt;(){&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-20&quot;&gt;&lt;a href=&quot;#cb5-20&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; nums&lt;span class=&quot;op&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-21&quot;&gt;&lt;a href=&quot;#cb5-21&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; nums&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// Warning!&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-22&quot;&gt;&lt;a href=&quot;#cb5-22&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-23&quot;&gt;&lt;a href=&quot;#cb5-23&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;(){&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-24&quot;&gt;&lt;a href=&quot;#cb5-24&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; arr &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; create&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb5-25&quot;&gt;&lt;a href=&quot;#cb5-25&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如上所示的栈数组 nums 是在 create() 内创建的局部变量，如果不采取额外的措施(e.g. 使用 static 将数组分配在静态存储区，or 使用移动语义延长对象的生命期)，编译器将抛出 Warning，因为其指向的对象将在 return 的时候被销毁(由 leave 汇编语句释放当前栈帧使用的资源)。所以在初学 C 语言时，老师反复强调的“不能返回指向当前栈帧内存的局部变量”就是这么来的。&lt;/p&gt;
+&lt;p&gt;xvalue 具有所有 glvalue 和 rvalue 拥有的特征。&lt;/p&gt;
+&lt;h6 id=&quot;左右值引用引用坍缩&quot;&gt;左/右值引用&amp;amp;引用坍缩&lt;/h6&gt;
+&lt;p&gt;好了，现在我们知道什么是左值、纯右值与将亡值了。接着讲一下基于左值的左值引用以及基于右值的右值引用。&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;左值引用&quot;&gt;左值引用&lt;/p&gt;
+&lt;p&gt;C++11 前，我们所说的引用没有歧义，指的就是对左值进行引用。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb6&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb6-1&quot;&gt;&lt;a href=&quot;#cb6-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-2&quot;&gt;&lt;a href=&quot;#cb6-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;type_traits&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-3&quot;&gt;&lt;a href=&quot;#cb6-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-4&quot;&gt;&lt;a href=&quot;#cb6-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; A &lt;span class=&quot;op&quot;&gt;{};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-5&quot;&gt;&lt;a href=&quot;#cb6-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-6&quot;&gt;&lt;a href=&quot;#cb6-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-7&quot;&gt;&lt;a href=&quot;#cb6-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;boolalpha&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-8&quot;&gt;&lt;a href=&quot;#cb6-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_lvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-9&quot;&gt;&lt;a href=&quot;#cb6-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_lvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: true&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-10&quot;&gt;&lt;a href=&quot;#cb6-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_lvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-11&quot;&gt;&lt;a href=&quot;#cb6-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_lvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: true&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb6-12&quot;&gt;&lt;a href=&quot;#cb6-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;btw, C++ 里的左值引用其实暗含了一次对指向对象的解引用操作，原因在于 &lt;code&gt;int&amp;amp;&lt;/code&gt; ↔︎ &lt;code&gt;int* const&lt;/code&gt;，&lt;code&gt;A&amp;amp;&lt;/code&gt; ↔︎ &lt;code&gt;A* const&lt;/code&gt; 。&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;右值引用&quot;&gt;右值引用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;传统的 C++ 没有区分『移动』和 『拷贝』的概念，造成了大量的数据拷贝，浪费时间和空间。右值引用的出现恰好就解决了这两个概念的混淆问题。  —— —— 《现代C++教程》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;C++11 提出了右值引用这一概念，合理化了 &lt;code&gt;int&amp;amp;&amp;amp; num = 3&lt;/code&gt; 这种对右值3取引用的写法。此外，C++11 提供了 &lt;code&gt;std::move&lt;/code&gt; 方法让我们可以把左值无条件地转换为右值(viz. xvalue)。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb7&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb7-1&quot;&gt;&lt;a href=&quot;#cb7-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-2&quot;&gt;&lt;a href=&quot;#cb7-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;type_traits&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-3&quot;&gt;&lt;a href=&quot;#cb7-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt; &lt;/span&gt;
+&lt;span id=&quot;cb7-4&quot;&gt;&lt;a href=&quot;#cb7-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; A &lt;span class=&quot;op&quot;&gt;{};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-5&quot;&gt;&lt;a href=&quot;#cb7-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt; &lt;/span&gt;
+&lt;span id=&quot;cb7-6&quot;&gt;&lt;a href=&quot;#cb7-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;/span&gt;
+&lt;span id=&quot;cb7-7&quot;&gt;&lt;a href=&quot;#cb7-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-8&quot;&gt;&lt;a href=&quot;#cb7-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;boolalpha&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-9&quot;&gt;&lt;a href=&quot;#cb7-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-10&quot;&gt;&lt;a href=&quot;#cb7-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-11&quot;&gt;&lt;a href=&quot;#cb7-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: true&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-12&quot;&gt;&lt;a href=&quot;#cb7-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-13&quot;&gt;&lt;a href=&quot;#cb7-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: false&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-14&quot;&gt;&lt;a href=&quot;#cb7-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;is_rvalue_reference&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;&amp;gt;::&lt;/span&gt;value &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 输出: true&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb7-15&quot;&gt;&lt;a href=&quot;#cb7-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;heading&quot; id=&quot;引用坍缩&quot;&gt;引用坍缩&lt;/p&gt;
+&lt;p&gt;传统C++里规定不能对一个引用类型继续进行引用，但在右值引用出现后就允许我们对引用进行新的左/右引用，即产生了所谓的引用坍缩规则:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;函数形参类型&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;实参参数类型&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;推导后函数形参类型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;左引用&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;右引用&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;左引用&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;右引用&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;T&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;因为引用坍缩的存在，如果我们希望入参在调用函数内部保持传入前的参数类型，则需通过 &lt;code&gt;std::forward&lt;/code&gt; 进行完美转发，详细用法网上有很多，这里就不展开了。&lt;/p&gt;
+&lt;h6 id=&quot;a-和-a-的区别&quot;&gt;++a 和 a++ 的区别？&lt;/h6&gt;
+&lt;p&gt;C 语言课上，老师从使用效果上讲过 ++a 和 a++ 的区别：++a 表示变量值 a 先自增加1后返回这个值，a++ 叫后自增，表示自增 + 1 了，但返回的是自增前的变量值。但这一过程是如何是实现的呢？&lt;/p&gt;
+&lt;p&gt;现在，我们知道了左右值以及它们引用的概念，可以从代码上来一窥究竟了：&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb8&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb8-1&quot;&gt;&lt;a href=&quot;#cb8-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* 前缀自增 */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-2&quot;&gt;&lt;a href=&quot;#cb8-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;++(){&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-3&quot;&gt;&lt;a href=&quot;#cb8-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-4&quot;&gt;&lt;a href=&quot;#cb8-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-5&quot;&gt;&lt;a href=&quot;#cb8-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-6&quot;&gt;&lt;a href=&quot;#cb8-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-7&quot;&gt;&lt;a href=&quot;#cb8-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* 后缀自增 */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-8&quot;&gt;&lt;a href=&quot;#cb8-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;++(&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-9&quot;&gt;&lt;a href=&quot;#cb8-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; old_val &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-10&quot;&gt;&lt;a href=&quot;#cb8-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;++(*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-11&quot;&gt;&lt;a href=&quot;#cb8-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; old_val&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb8-12&quot;&gt;&lt;a href=&quot;#cb8-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;也许，看了上面的代码，你会对左右值以及自增运算符有了更清晰的认识。&lt;/p&gt;
+&lt;h6 id=&quot;所有权&quot;&gt;所有权&lt;/h6&gt;
+&lt;p&gt;在讲拷贝/移动语义前，笔者打算简单说一下自己对于 “所有权(Ownership)” 概念的理解。笔者最初在学 Rust 的时候接触的“所有权”这一概念，不同于 C++ 语句默认采用拷贝语义，Rust 语句默认使用移动语义，也正是由于所有权的规约，无 GC 的 Rust 一直以高效、内存安全著称。&lt;/p&gt;
+&lt;p&gt;首先明确一点，所有权针对的是堆区内存，因为栈区内存是编译期确定且随着函数栈帧的创建/释放自动管理的，而堆区内存的分配和使用只有运行时才得以确定，因此 Rust 所有权的职责说白了就是追踪堆内存数据的动向。&lt;/p&gt;
+&lt;h6 id=&quot;拷贝语义&quot;&gt;拷贝语义&lt;/h6&gt;
+&lt;p&gt;如&lt;a href=&quot;#一样的结果不一样的行为&quot;&gt;本文开头&lt;/a&gt;所举的那个例子，C++ 中的拷贝语义由拷贝构造函数和拷贝赋值操作符承担。 - 拷贝构造函数 (Copy Construction)：负责让对象被创建作为一个对现有对象的副本 的类内特殊成员函数。 - 拷贝赋值操作符 (Copy Assignment)：负责让现有对象的内容被赋值替换为另一现有对象的内容 的类内特殊成员函数。&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;自定义拷贝构造函数&quot;&gt;自定义拷贝构造函数&lt;/p&gt;
+&lt;p&gt;在使用类库的时候，我们可以使用 &lt;code&gt;std::vector&amp;lt;int&amp;gt; new_vec = old_vec;&lt;/code&gt; 这样的写法，是因为类库中的模板类 vector 已经给我们实现好了拷贝构造函数。对于我们自己的类，设计时如果用到了拷贝语义，就需要手动实现一份拷贝构造函数。&lt;/p&gt;
+&lt;p&gt;如下，假设我们需要设计一个自己的 vector 模板类。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb9&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb9-1&quot;&gt;&lt;a href=&quot;#cb9-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;typename&lt;/span&gt; T&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-2&quot;&gt;&lt;a href=&quot;#cb9-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-3&quot;&gt;&lt;a href=&quot;#cb9-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-4&quot;&gt;&lt;a href=&quot;#cb9-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;co&quot;&gt;/* copy construction */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-5&quot;&gt;&lt;a href=&quot;#cb9-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    vector&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;T&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt; &lt;/span&gt;
+&lt;span id=&quot;cb9-6&quot;&gt;&lt;a href=&quot;#cb9-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-7&quot;&gt;&lt;a href=&quot;#cb9-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-8&quot;&gt;&lt;a href=&quot;#cb9-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;copy&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;+&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-9&quot;&gt;&lt;a href=&quot;#cb9-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-10&quot;&gt;&lt;a href=&quot;#cb9-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-11&quot;&gt;&lt;a href=&quot;#cb9-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-12&quot;&gt;&lt;a href=&quot;#cb9-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-13&quot;&gt;&lt;a href=&quot;#cb9-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb9-14&quot;&gt;&lt;a href=&quot;#cb9-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;heading&quot; id=&quot;自定义拷贝赋值操作符&quot;&gt;自定义拷贝赋值操作符&lt;/p&gt;
+&lt;p&gt;同理，我们也需要自己实现赋值操作符的重载。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb10&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb10-1&quot;&gt;&lt;a href=&quot;#cb10-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-2&quot;&gt;&lt;a href=&quot;#cb10-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;co&quot;&gt;/* copy assignment */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-3&quot;&gt;&lt;a href=&quot;#cb10-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    vector&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;T&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-4&quot;&gt;&lt;a href=&quot;#cb10-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-5&quot;&gt;&lt;a href=&quot;#cb10-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-6&quot;&gt;&lt;a href=&quot;#cb10-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        resize&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-7&quot;&gt;&lt;a href=&quot;#cb10-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;copy&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;+&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-8&quot;&gt;&lt;a href=&quot;#cb10-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-9&quot;&gt;&lt;a href=&quot;#cb10-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb10-10&quot;&gt;&lt;a href=&quot;#cb10-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h6 id=&quot;移动语义&quot;&gt;移动语义&lt;/h6&gt;
+&lt;p&gt;终于讲到移动啦！与 Rust 对左值的“直接移动”不同，C++ 的移动语义需要先通过 &lt;code&gt;std::move()&lt;/code&gt; 将左值转换为将亡值(n.b. C++ 中只有右值可以被 move)，然后再将此将亡值赋给新的变量（借助移动构造/赋值函数），这才走完了所有权移动的过程。&lt;/p&gt;
+&lt;p&gt;上面提过的 xvalue, prvalue 以及 lvalue ，这三者遵循着一套移动规则以及对应着不同的构造方法： |Value categories|移动规则 |调用构造方法| |:—————|:——————|:—————–| |xvalue |可以被直接移动 |调用移动构造函数 | |prvale |被移动的时候，会生成一个临时变量 xvalue，这个 xvalue 被移动了 |prvalue 初始化 lvalue，直接构建，不调用拷贝/移动构造函数 | |lvalue |移动时需要使用 std::move 将 lvalue 变成 xvalue，然后再移动这个 xvalue |调用拷贝构造函数 |&lt;/p&gt;
+&lt;p&gt;发生移动后，原来的被移动的变量指向的值的所有权转移到了新的变量中，原变量变成了“空值”状态。在下面的这个例子中，我们通过 std::move 将变量 old_str 变成了一个 xvalue，并将它赋给变量 new_str，这时候将程序调用 std::string 类型的移动函数来操作与管理 old_str 指向的资源 “hello world”&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb11&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb11-1&quot;&gt;&lt;a href=&quot;#cb11-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;string&lt;span class=&quot;op&quot;&gt; &lt;/span&gt;old_str &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb11-2&quot;&gt;&lt;a href=&quot;#cb11-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;string&lt;span class=&quot;op&quot;&gt; &lt;/span&gt;new_str &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;old_str&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// after moved, old_str == &amp;quot;&amp;quot;, new_str == &amp;quot;hello world&amp;quot;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;heading&quot; id=&quot;自定义移动构造函数&quot;&gt;自定义移动构造函数&lt;/p&gt;
+&lt;p&gt;同样，我们实现一个移动构造函数&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb12&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb12-1&quot;&gt;&lt;a href=&quot;#cb12-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-2&quot;&gt;&lt;a href=&quot;#cb12-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* move construction */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-3&quot;&gt;&lt;a href=&quot;#cb12-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;vector&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;T&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt; &lt;/span&gt;
+&lt;span id=&quot;cb12-4&quot;&gt;&lt;a href=&quot;#cb12-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-5&quot;&gt;&lt;a href=&quot;#cb12-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-6&quot;&gt;&lt;a href=&quot;#cb12-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-7&quot;&gt;&lt;a href=&quot;#cb12-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-8&quot;&gt;&lt;a href=&quot;#cb12-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-9&quot;&gt;&lt;a href=&quot;#cb12-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-10&quot;&gt;&lt;a href=&quot;#cb12-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb12-11&quot;&gt;&lt;a href=&quot;#cb12-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p class=&quot;heading&quot; id=&quot;自定义移动赋值操作符&quot;&gt;自定义移动赋值操作符&lt;/p&gt;
+&lt;p&gt;以及，重载移动赋值操作符。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb13&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb13-1&quot;&gt;&lt;a href=&quot;#cb13-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-2&quot;&gt;&lt;a href=&quot;#cb13-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;/* move alignment */&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-3&quot;&gt;&lt;a href=&quot;#cb13-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; vector&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;=(&lt;/span&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;T&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&amp;amp;&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;){&lt;/span&gt; &lt;/span&gt;
+&lt;span id=&quot;cb13-4&quot;&gt;&lt;a href=&quot;#cb13-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-5&quot;&gt;&lt;a href=&quot;#cb13-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-6&quot;&gt;&lt;a href=&quot;#cb13-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    resize&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-7&quot;&gt;&lt;a href=&quot;#cb13-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-8&quot;&gt;&lt;a href=&quot;#cb13-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_size&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-9&quot;&gt;&lt;a href=&quot;#cb13-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_capacity&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-10&quot;&gt;&lt;a href=&quot;#cb13-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    other&lt;span class=&quot;op&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;va&quot;&gt;m_elems&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-11&quot;&gt;&lt;a href=&quot;#cb13-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-12&quot;&gt;&lt;a href=&quot;#cb13-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb13-13&quot;&gt;&lt;a href=&quot;#cb13-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5 id=&quot;性能优化&quot;&gt;性能优化&lt;/h5&gt;
+&lt;h6 id=&quot;编译期优化&quot;&gt;编译期优化&lt;/h6&gt;
+&lt;p&gt;Copy elision 和 RVO/NRVO 是两套独立的优化策略。 ##### 拷贝省略 拷贝省略（Copy elision）是编译期的重要优化之一，将不需要的 copy/move 操作以及析构操作在编译期直接去除，从而减少多次操作带来的开销。我们将用一个例子说明在拷贝省略的过程中编译器究竟为我们做了哪些事情。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb14&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb14-1&quot;&gt;&lt;a href=&quot;#cb14-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-2&quot;&gt;&lt;a href=&quot;#cb14-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-3&quot;&gt;&lt;a href=&quot;#cb14-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; A &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-4&quot;&gt;&lt;a href=&quot;#cb14-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-5&quot;&gt;&lt;a href=&quot;#cb14-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    A&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Constructed&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-6&quot;&gt;&lt;a href=&quot;#cb14-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    A&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;at&quot;&gt;const&lt;/span&gt; A&lt;span class=&quot;op&quot;&gt;&amp;amp;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Copied&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-7&quot;&gt;&lt;a href=&quot;#cb14-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    A&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;&amp;amp;&amp;amp;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Moved&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-8&quot;&gt;&lt;a href=&quot;#cb14-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-9&quot;&gt;&lt;a href=&quot;#cb14-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-10&quot;&gt;&lt;a href=&quot;#cb14-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;A create&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-11&quot;&gt;&lt;a href=&quot;#cb14-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    A obj_create&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-12&quot;&gt;&lt;a href=&quot;#cb14-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; obj_create&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-13&quot;&gt;&lt;a href=&quot;#cb14-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-14&quot;&gt;&lt;a href=&quot;#cb14-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-15&quot;&gt;&lt;a href=&quot;#cb14-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-16&quot;&gt;&lt;a href=&quot;#cb14-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    A obj &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; create&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb14-17&quot;&gt;&lt;a href=&quot;#cb14-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;不管是 C++11 还是 C++17 ，它们都把拷贝省略把移动操作(对拷贝同理，没有移动构造函数的时候省略拷贝构造函数)给省略了。那么不禁要问是在什么时候发生的以及是怎么省略的呢？&lt;/p&gt;
+&lt;p&gt;这里先给出结论：如果不发生拷贝省略，C++11 编译出的 &lt;code&gt;A obj = create();&lt;/code&gt; 语句将发生下面的5件事：&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;调用函数 create 前，使用一块内存 “obj_mem” 用来存储对象 obj；&lt;/li&gt;
+&lt;li&gt;准备进入函数 create 栈帧前，选择一块临时内存 “tmp_mem” 来接收函数的返回值；&lt;/li&gt;
+&lt;li&gt;压入 create 函数栈帧后，选择一块当前函数帧上的内存来创建局部对象 obj_create；&lt;/li&gt;
+&lt;li&gt;函数返回时，将局部对象 obj_create 移动到上个函数帧的临时内存 “tmp_mem” 上；&lt;/li&gt;
+&lt;li&gt;“赋值”的时候，从 “tmp_mem” 上将 obj_create 的内容移动给“obj_mem”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以看到这个过程一共发生了两次移动（第四和第五步），为了进一步验证其背后的行为，我们来探索上例编译后生成的汇编代码。&lt;/p&gt;
+&lt;p&gt;让我们关闭编译器的拷贝优化，观察没有拷贝省略的时候会发生什么。&lt;/p&gt;
+&lt;p&gt;使用 C++11 编译代码并运行 &lt;code&gt;clang++ -std=c++11 -fno-elide-constructors main.cpp -o main &amp;amp;&amp;amp; ./main&lt;/code&gt; ，输出：&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb15&quot;&gt;&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span id=&quot;cb15-1&quot;&gt;&lt;a href=&quot;#cb15-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Constructed&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb15-2&quot;&gt;&lt;a href=&quot;#cb15-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Moved&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb15-3&quot;&gt;&lt;a href=&quot;#cb15-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Moved&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;生成汇编如下： create(): push rbp mov rbp, rsp sub rsp, 32 mov QWORD PTR [rbp-24], rdi lea rax, [rbp-1] mov rdi, rax call A::A() [complete object constructor] lea rdx, [rbp-1] mov rax, QWORD PTR [rbp-24] mov rsi, rdx mov rdi, rax call A::A(A&amp;amp;&amp;amp;) [complete object constructor] mov rax, QWORD PTR [rbp-24] leave ret main: push rbp mov rbp, rsp sub rsp, 16 lea rax, [rbp-1] mov rdi, rax call create() lea rdx, [rbp-1] lea rax, [rbp-2] mov rsi, rdx mov rdi, rax call A::A(A&amp;amp;&amp;amp;) [complete object constructor] mov eax, 0 leave ret&lt;/p&gt;
+&lt;p&gt;可以看到，在 C++11 无拷贝优化下，我们的代码在 create() 与 main() 里分别 call 了两次 A::A(A&amp;amp;&amp;amp;)，即两次移动构造。&lt;/p&gt;
+&lt;p&gt;使用 C++17 编译代码和运行 &lt;code&gt;clang++ -std=c++17 -fno-elide-constructors main.cpp -o main &amp;amp;&amp;amp; ./main&lt;/code&gt; ，输出：&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb16&quot;&gt;&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span id=&quot;cb16-1&quot;&gt;&lt;a href=&quot;#cb16-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Constructed&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb16-2&quot;&gt;&lt;a href=&quot;#cb16-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Moved&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;生成汇编如下： create(): push rbp mov rbp, rsp sub rsp, 32 mov QWORD PTR [rbp-24], rdi lea rax, [rbp-1] mov rdi, rax call A::A() [complete object constructor] lea rdx, [rbp-1] mov rax, QWORD PTR [rbp-24] mov rsi, rdx mov rdi, rax call A::A(A&amp;amp;&amp;amp;) [complete object constructor] mov rax, QWORD PTR [rbp-24] leave ret main: push rbp mov rbp, rsp sub rsp, 16 lea rax, [rbp-1] mov rdi, rax call create() mov eax, 0 leave ret&lt;/p&gt;
+&lt;p&gt;可见，在 C++17 无拷贝优化下，我们的代码只在 create() 中调用了一次移动构造函数 A::A(A&amp;amp;&amp;amp;) 。&lt;/p&gt;
+&lt;p&gt;很神奇的发现：在对象被构造出来后，C++11 分别在 create() 和 main() 内 各自 move 了一次，C++17 只在 create() 内 move 了一次。&lt;/p&gt;
+&lt;p&gt;如果我们启用拷贝省略进行编译：&lt;code&gt;g++ -std=c++11 main.cpp -o main &amp;amp;&amp;amp; ./main&lt;/code&gt; (&lt;code&gt;g++ -std=c++17 main.cpp -o main &amp;amp;&amp;amp; ./main&lt;/code&gt;) 这时候会发生什么呢？&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb17&quot;&gt;&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span id=&quot;cb17-1&quot;&gt;&lt;a href=&quot;#cb17-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;ex&quot;&gt;Constructed&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;对应的汇编如下：&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb18&quot;&gt;&lt;pre class=&quot;sourceCode asm&quot;&gt;&lt;code class=&quot;sourceCode fasm&quot;&gt;&lt;span id=&quot;cb18-1&quot;&gt;&lt;a href=&quot;#cb18-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;fu&quot;&gt;A:&lt;/span&gt;:A&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;base object constructor&lt;span class=&quot;op&quot;&gt;]:&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 类A&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-2&quot;&gt;&lt;a href=&quot;#cb18-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;push&lt;/span&gt;    &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-3&quot;&gt;&lt;a href=&quot;#cb18-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-4&quot;&gt;&lt;a href=&quot;#cb18-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;sub&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-5&quot;&gt;&lt;a href=&quot;#cb18-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;dt&quot;&gt;QWORD&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;PTR&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rdi&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-6&quot;&gt;&lt;a href=&quot;#cb18-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;esi&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; OFFSET FLAT&lt;span class=&quot;op&quot;&gt;:.&lt;/span&gt;LC0&lt;/span&gt;
+&lt;span id=&quot;cb18-7&quot;&gt;&lt;a href=&quot;#cb18-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;edi&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; OFFSET FLAT&lt;span class=&quot;op&quot;&gt;:&lt;/span&gt;_ZSt4cout&lt;/span&gt;
+&lt;span id=&quot;cb18-8&quot;&gt;&lt;a href=&quot;#cb18-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;call&lt;/span&gt;    std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;basic_ostream&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;char&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;char_traits&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;char&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;operator&lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;char_traits&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;char&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;gt;(&lt;/span&gt;std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;basic_ostream&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;char&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; std&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;char_traits&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;char&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;,&lt;/span&gt; char const&lt;span class=&quot;op&quot;&gt;*)&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-9&quot;&gt;&lt;a href=&quot;#cb18-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;nop&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-10&quot;&gt;&lt;a href=&quot;#cb18-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;leave&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-11&quot;&gt;&lt;a href=&quot;#cb18-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;ret&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-12&quot;&gt;&lt;a href=&quot;#cb18-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;create&lt;span class=&quot;op&quot;&gt;():&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; create()函数入口&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-13&quot;&gt;&lt;a href=&quot;#cb18-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;push&lt;/span&gt;    &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-14&quot;&gt;&lt;a href=&quot;#cb18-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 函数帧序言&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-15&quot;&gt;&lt;a href=&quot;#cb18-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;sub&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-16&quot;&gt;&lt;a href=&quot;#cb18-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;dt&quot;&gt;QWORD&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;PTR&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rdi&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 将rdi内容赋给内存中的[rbp-8]处，QWORD PTR 意为解释后接内存区域[rbp-8]为4个字(8字节)的指针类型&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-17&quot;&gt;&lt;a href=&quot;#cb18-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;QWORD&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;PTR&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-18&quot;&gt;&lt;a href=&quot;#cb18-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rax&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-19&quot;&gt;&lt;a href=&quot;#cb18-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;call&lt;/span&gt;    A&lt;span class=&quot;op&quot;&gt;::&lt;/span&gt;A&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;complete object constructor&lt;span class=&quot;op&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 调用类A的普通构造函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-20&quot;&gt;&lt;a href=&quot;#cb18-20&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;nop&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-21&quot;&gt;&lt;a href=&quot;#cb18-21&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;QWORD&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;PTR&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-22&quot;&gt;&lt;a href=&quot;#cb18-22&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;leave&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-23&quot;&gt;&lt;a href=&quot;#cb18-23&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;ret&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-24&quot;&gt;&lt;a href=&quot;#cb18-24&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;fu&quot;&gt;main:&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; main()函数入口&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-25&quot;&gt;&lt;a href=&quot;#cb18-25&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;push&lt;/span&gt;    &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-26&quot;&gt;&lt;a href=&quot;#cb18-26&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 函数帧序言&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-27&quot;&gt;&lt;a href=&quot;#cb18-27&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;sub&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-28&quot;&gt;&lt;a href=&quot;#cb18-28&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;lea&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rbp&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;]&lt;/span&gt;   &lt;span class=&quot;co&quot;&gt;; 将 [rbp-1] 内存的地址(非内存中存储的内容)赋给rax寄存器&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-29&quot;&gt;&lt;a href=&quot;#cb18-29&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;rax&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-30&quot;&gt;&lt;a href=&quot;#cb18-30&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;call&lt;/span&gt;    create&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;; 调用create函数&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-31&quot;&gt;&lt;a href=&quot;#cb18-31&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;mov&lt;/span&gt;     &lt;span class=&quot;kw&quot;&gt;eax&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;;  将eax寄存器内容置零&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-32&quot;&gt;&lt;a href=&quot;#cb18-32&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;bu&quot;&gt;leave&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb18-33&quot;&gt;&lt;a href=&quot;#cb18-33&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;        &lt;span class=&quot;cf&quot;&gt;ret&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;启用拷贝优化后汇编只是 call 了普通构造函数，再没有别的拷贝/移动操作了。原来，编译器默默地帮我们做了这么多事情 ٩(๑&amp;gt;◡&amp;lt;๑)۶&lt;/p&gt;
+&lt;p&gt;现在我们知道了编译器会默认帮我们开启拷贝省略，从而我们写的代码一次移动都没做。此外如果关闭了拷贝省略，就会因为 C++17 后编译器默认使用 RVO ，可选使用 NRVO ，所以只有产生了一次移动操作；而 C++11 标准下编译器默认不会帮你做这两件事情，对应产生了两次理应被优化掉的移动操作。&lt;/p&gt;
+&lt;p&gt;所以，什么是 RVO 与 NRVO 呢？&lt;/p&gt;
+&lt;p class=&quot;heading&quot; id=&quot;rvo-与-nrvo&quot;&gt;RVO 与 NRVO&lt;/p&gt;
+&lt;p&gt;RVO 是英文 return value optimization 的缩写，NRVO 是英文 named return value optimization 的缩写。&lt;/p&gt;
+&lt;p&gt;下面的这段解释来自知乎上一位网友的文章（见文末参考[8]） &amp;gt; RVO是返回值优化，就是将返回值的创建省略了。NRVO是函数内具有名字的局部变量充当返回值的时候，它的创建也被省略了。它们的省略结果都是在最终的变量里创建对象。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb19&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb19-1&quot;&gt;&lt;a href=&quot;#cb19-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;// 写法一&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-2&quot;&gt;&lt;a href=&quot;#cb19-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;Verbose create&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-3&quot;&gt;&lt;a href=&quot;#cb19-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; Verbose&lt;span class=&quot;op&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-4&quot;&gt;&lt;a href=&quot;#cb19-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-5&quot;&gt;&lt;a href=&quot;#cb19-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;//写法二&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-6&quot;&gt;&lt;a href=&quot;#cb19-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;Verbose create&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-7&quot;&gt;&lt;a href=&quot;#cb19-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  Verbose v&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-8&quot;&gt;&lt;a href=&quot;#cb19-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; v&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-9&quot;&gt;&lt;a href=&quot;#cb19-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-10&quot;&gt;&lt;a href=&quot;#cb19-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;//写法三&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-11&quot;&gt;&lt;a href=&quot;#cb19-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;Verbose create&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-12&quot;&gt;&lt;a href=&quot;#cb19-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  Verbose v&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-13&quot;&gt;&lt;a href=&quot;#cb19-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;cf&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb19-14&quot;&gt;&lt;a href=&quot;#cb19-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里首推写法一，因为在使用现代编译器的前提下(C++11后)，会默认将这段代码编译成直接在主调函数帧上原地构造对象，忽略了无编译优化条件下的两次移动操作，也就是我们前文提到的 copy elision。&lt;/p&gt;
+&lt;p&gt;如果编译器支持，那么针对写法二会进行 NRVO 优化。 &amp;gt; 在C++没有move的时候，很多编译器实现就支持RVO(return value optimization)和NRVO(named return value optimization)。这两种优化用于在返回值的时候避免不必要的copy。在C++11以后，引入了move，move的存在与copy elision交织在一起。在这里直接给出答案，写法一是推荐的，写法二场景需要就推荐，而写法三是不推荐的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C++17以后，RVO是保证会发生的，因为标准这么定义了。而NRVO并没有保证会发生，但是大部分编译器都会实现。所以在C++17里面，没有copy elision的时候只有一个moved，因为RVO也存在，而这个moved，是由于NRVO没有开启生成的。如果开启优化，那么一个moved也没有，因为NRVO把这个moved给优化掉了。当用prvalue创建对象的时候，直接会构造对象，而不用调用那几个构造函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6 id=&quot;开发层优化&quot;&gt;开发层优化&lt;/h6&gt;
+&lt;p class=&quot;heading&quot; id=&quot;入参主动转换为右值&quot;&gt;入参主动转换为右值&lt;/p&gt;
+&lt;p&gt;设置函数形参为右值引用，入参强制左值转换为右值，这样可以直接降低入参拷贝产生的性能开销。&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb20&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span id=&quot;cb20-1&quot;&gt;&lt;a href=&quot;#cb20-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-2&quot;&gt;&lt;a href=&quot;#cb20-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;pp&quot;&gt;#include &lt;/span&gt;&lt;span class=&quot;im&quot;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-3&quot;&gt;&lt;a href=&quot;#cb20-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-4&quot;&gt;&lt;a href=&quot;#cb20-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; take&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; param_vec&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-5&quot;&gt;&lt;a href=&quot;#cb20-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; vec&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// Output: 6,6,6&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-6&quot;&gt;&lt;a href=&quot;#cb20-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-7&quot;&gt;&lt;a href=&quot;#cb20-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-8&quot;&gt;&lt;a href=&quot;#cb20-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-9&quot;&gt;&lt;a href=&quot;#cb20-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; take&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;gt;&amp;amp;&amp;amp;&lt;/span&gt; param_vec&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-10&quot;&gt;&lt;a href=&quot;#cb20-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; vec&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// Output: 6,6,6&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-11&quot;&gt;&lt;a href=&quot;#cb20-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-12&quot;&gt;&lt;a href=&quot;#cb20-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;op&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-13&quot;&gt;&lt;a href=&quot;#cb20-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-14&quot;&gt;&lt;a href=&quot;#cb20-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;op&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-15&quot;&gt;&lt;a href=&quot;#cb20-15&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;vector&lt;span class=&quot;op&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;gt;&lt;/span&gt; vec&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-16&quot;&gt;&lt;a href=&quot;#cb20-16&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    take&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;vec&lt;span class=&quot;op&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 入参为左值引用&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-17&quot;&gt;&lt;a href=&quot;#cb20-17&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    take&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;move&lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;vec&lt;span class=&quot;op&quot;&gt;));&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// 入参为右值引用&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-18&quot;&gt;&lt;a href=&quot;#cb20-18&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;----------------------------------------&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb20-19&quot;&gt;&lt;a href=&quot;#cb20-19&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;cf&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;op&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;&amp;amp;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;:&lt;/span&gt; vec&lt;span class=&quot;op&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;std::&lt;/span&gt;cout&lt;span class=&quot;op&quot;&gt; &amp;lt;&amp;lt;&lt;/span&gt; n &lt;span class=&quot;op&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ch&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;op&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;// Output nothing.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;对于上面的代码段，左值 vec 在 move() 作用下转变为了一个 xvalue 值，并作为函数 take() 的入参，从输出的结果上看，调用 move() 函数前左值 vec 拥有 &lt;code&gt;vector对象 {6, 6, 6}&lt;/code&gt; 的所有权，调用 move() 后， vector 对象所有权转移给了 take() 函数的形参 param_vec ，变量 vec 也就不再拥有对原 vector 对象的所有权了。&lt;/p&gt;
+&lt;h5 id=&quot;跋&quot;&gt;跋&lt;/h5&gt;
+&lt;p&gt;总结一下，我们首先讨论了 C++ 对象操作中的构造与赋值这两种行为，接着介绍了左值/右值的概念并阐述了细分右值概念的原因，而紧接的右值引用正是在细分右值后的将亡值做文章，借助右值引用概念，我们引入并讨论了本文的核心内容 —— 移动语义。最后，简单介绍了像 Copy elision 这样的现代 C++ 编译器中的编译优化技术，最后展示了笔者学习过程中所记录的几个最佳实践。&lt;/p&gt;
+&lt;p&gt;在 C++ 的众多技术(哲学)里，笔者所认为的理解难度与重要程度较大的几个概念有：拷贝与移动语义、RAII 与智能指针、多线程、协程以及模板元编程。后面如果有时间，将另开新的文章，继续其余几个话题的讨论，敬请期待。&lt;del&gt;咕咕咕🕊️&lt;/del&gt;&lt;/p&gt;
+&lt;h5 id=&quot;参考引用&quot;&gt;参考&amp;amp;引用&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[1] &lt;a href=&quot;https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1184/lectures/lecture14/14_Constructors_and_Assignment.pdf&quot;&gt;CS106L Standard C++ Programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[2] &lt;a href=&quot;https://en.cppreference.com/w/cpp/language/copy_elision&quot;&gt;Copy Elision&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[3] &lt;a href=&quot;https://en.cppreference.com/w/cpp/language/rule_of_three&quot;&gt;The rule of three/five/zero&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[4] &lt;a href=&quot;https://en.cppreference.com/w/cpp/language/Zero-overhead_principle&quot;&gt;Zero-overhead principle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[5] &lt;a href=&quot;https://en.cppreference.com/w/cpp/language/value_category&quot;&gt;Value categories&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[6] &lt;a href=&quot;https://changkun.de/modern-cpp/pdf/modern-cpp-tutorial-zh-cn.pdf&quot;&gt;《现代 C++ 教程：高速上手 C++11/14/17/20》&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[7] &lt;a href=&quot;http://www.sunistudio.com/cppfaq/&quot;&gt;C++ FAQ LITE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[8] &lt;a href=&quot;https://zhuanlan.zhihu.com/p/379566824&quot;&gt;Copy/move elision: C++ 17 vs C++ 11&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lyyl.me/">
+    <title type="text">My early life</title>
+    <id>https://lyyl.me/posts/winston</id>
+    <updated>2017-07-04T00:00:00Z</updated>
+    <published>2017-07-04T00:00:00Z</published>
+    <link href="https://lyyl.me/posts/winston" />
+    <author>
+      <name>YangLiu</name>
+    </author>
+    <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;
+  &lt;title&gt;-&lt;/title&gt;
+  &lt;style&gt;
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li &gt; ol, li &gt; ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  &lt;/style&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3 id=&quot;by-winston-s.-churchill&quot;&gt;By Winston S. Churchill&lt;/h3&gt;
+&lt;p&gt;When does one first begin to remember? When do the waving lights and shadows of dawning consciousness cast their print upon the mind of a child? My earliest mem ories are Ireland. I can recall scenes and events in Ireland quite well, and sometimes dimly even, people. Yet I was born on November 30, 1874, and I left Ireland early in the year 1879. My father had gone to Ireland as secretary to his father, the Duke of Marlborough, appointed Lord-Lieu tenant by Mr. Disraeli in 1876. We lived in a house called &lt;em&gt;The Little Lodge&lt;/em&gt; about a stone’s throw from the Vice regal. Here I spent nearly three years of childhood. I have clear and vivid impressions of some events. I remem ber my grandfather, the Viceroy, unveiling the Lord Gough statue in 1878. A great black crowd, scarlet soldiers on horse back, strings pulling away a brown shiny sheet, the old Duke, the formidable grandpapa, talking loudly to the crowd. I recall even a phrase he used: ‘and with a wither ing volley he shattered the enemy’s line.’ I quite under stood that he was speaking about war and fighting and that a Volley’ meant what the black-coated soldiers (Riflemen) used to do with loud bangs so often in the Phoenix Park where I was taken for my morning walks. This, I think, is my first coherent memory.&lt;/p&gt;
+&lt;p&gt;Other events stand out more distinctly. We were to go to a pantomime. There was great excitement about it. The long- looked-for afternoon arrived. We started from the Vice regal and drove to the Castle where other children were no doubt to be picked up. Inside the Castle was a great square space paved with small oblong stones. It rained. It nearly always rained just as it does now. People came out of the doors of the Castle, and there seemed to be much stir. Then we were told we could not go to the pantomime be cause the theatre had been burned down. All that was found of the manager was the keys that had been in his pocket. We were promised as a consolation for not going to the pantomime to go next day and see the ruins of the building. I wanted very much to see the keys, but this request does not seem to have been well received.&lt;/p&gt;
+&lt;p&gt;In one of these years we paid a visit to Emo Park, the seat of Lord Portarlington, who was explained to me as a sort of uncle. Of this place I can give very clear descrip tions, though I have never been there since I was four or four and a half. The central point in my memory is a tall white stone tower which we reached after a considerable drive. I was told it had been blown up by Oliver Cromwell. I understood definitely that he had blown up all sorts of things and was therefore a very great man.&lt;/p&gt;
+&lt;p&gt;My nurse, Mrs. Everest, was nervous about the Fenians. I gathered these were wicked people and there was no end to what they would do if they had their way. On one occa sion when I was out riding on my donkey, we thought we saw a long dark procession of Fenians approaching. I am sure now it must have been the Rifle Brigade out for a route march. But we were all very much alarmed, particularly the donkey, who expressed his anxiety by kicking. I was thrown off and had concussion of the brain. This was my first intro duction to Irish politics!&lt;/p&gt;
+&lt;p&gt;In the Phoenix Park there was a great round clump of trees with a house inside it. In this house there lived a per sonage styled the Chief Secretary or the Under Secretary, I am not clear which. But at any rate from this house there came a man called Mr. Burke. He gave me a drum. I can not remember what he looked like, but I remember the drum. Two years afterwards when we were back in England, they told me he had been murdered by the Fenians in this same Phoenix Park we used to walk about in every day. Everyone round me seemed much upset about it, and I thought how lucky it was the Fenians had not got me when I fell off the donkey.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lyyl.me/">
+    <title type="text">Speeches</title>
+    <id>https://lyyl.me/posts/speeches</id>
+    <updated>2016-06-05T00:00:00Z</updated>
+    <published>2016-06-05T00:00:00Z</published>
+    <link href="https://lyyl.me/posts/speeches" />
+    <author>
+      <name>YangLiu</name>
+    </author>
+    <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;
+  &lt;title&gt;-&lt;/title&gt;
+  &lt;style&gt;
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li &gt; ol, li &gt; ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  &lt;/style&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4 id=&quot;pericles-funeral-oration&quot;&gt;Pericles’ Funeral Oration&lt;/h4&gt;
+&lt;p&gt;I have dwelt upon the greatness of Athens&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-0&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-0&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;This speech gives one of the best description of Athenian democracy and ancient Athens. In the speech Pericles relates the special qualities of the Athenians, redefining many traditional Greek value systems. The idea that the Athenians are able to put aside their little wants and strive for the greater good of the city is a central theme of the speech. The people of Athens submit to the laws and obey the public officials not because they have to, as in other cities, but because they want to. Athenians had thus achieved something quite unique - being both ruled and rulers at one and the same time (a first step toward democracy).&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt; because I want to show you that we are contending for a higher prize than those who enjoy none of these privileges, and to establish by manifest proof the merit of these men whom I am now commemorating. Their loftiest praise has been already spoken. For in magnifying the city I have magnified them, and men like them whose virtues made her glorious. And of how few Hellenes can it be said as of them, that their deeds when weighed in the balance have been found equal to their fame!&lt;/p&gt;
+&lt;p&gt;I believe that a death such as theirs has been the true measure of a man’s worth; it may be the first revelation of his virtues, but is at any rate their final seal. For even those who come short in other ways may justly plead the valor with which they have fought for their country; they have blotted out the evil with the good, and have benefited the state more by their public services than they have injured her by their private actions. None of these men were enervated by wealth or hesitated to resign the pleasures of life; none of them put off the evil day in the hope, natural to poverty, that a man, though poor, may one day become rich. But, deeming that the punishment of their enemies was sweeter than any of these things, and that they could fall in no nobler cause, they determined at the hazard of their lives to be honorably avenged, and to leave the rest.&lt;/p&gt;
+&lt;p&gt;They resigned to hope their unknown chance of happiness; but in the face of death they resolved to rely upon themselves alone. And when the moment came they were minded to resist and suffer, rather than to fly and save their lives; they ran away from the word of dishonor, but on the battlefield their feet stood fast, and in an instant, at the height of their fortune, they passed away from the scene, not of their fear, but of their glory.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;the-gettysburg-address&quot;&gt;The Gettysburg Address&lt;/h4&gt;
+&lt;p&gt;Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-1&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-1&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;On June 1, 1865, Senator Charles Sumner referred to the most famous speech ever given by President Abraham Lincoln. In his eulogy on the slain president, he called the Gettysburg Address a “monumental act.” He said Lincoln was mistaken that “the world will little note, nor long remember what we say here.” Rather, the Bostonian remarked, “The world noted at once what he said, and will never cease to remember it. The battle itself was less important than the speech.”&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.&lt;/p&gt;
+&lt;p&gt;But, in a larger sense, we can not dedicate — we can not consecrate — we can not hallow — this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us — that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion — that we here highly resolve that these dead shall not have died in vain — that this nation, under God, shall have a new birth of freedom — and that government of the people, by the people, for the people, shall not perish from the earth.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+  </entry>
+  <entry xml:base="https://lyyl.me/">
+    <title type="text">Elements</title>
+    <id>https://lyyl.me/posts/elements</id>
+    <updated>2016-03-12T00:00:00Z</updated>
+    <published>2016-03-12T00:00:00Z</published>
+    <link href="https://lyyl.me/posts/elements" />
+    <author>
+      <name>YangLiu</name>
+    </author>
+    <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;
+  &lt;title&gt;-&lt;/title&gt;
+  &lt;style&gt;
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li &gt; ol, li &gt; ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre &gt; code.sourceCode { white-space: pre; position: relative; }
+    pre &gt; code.sourceCode &gt; span { display: inline-block; line-height: 1.25; }
+    pre &gt; code.sourceCode &gt; span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode &gt; span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre &gt; code.sourceCode { white-space: pre-wrap; }
+    pre &gt; code.sourceCode &gt; span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code &gt; span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code &gt; span &gt; a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre &gt; code.sourceCode &gt; span &gt; a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  &lt;/style&gt;
+  &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This, is a paragraph with &lt;code&gt;code&lt;/code&gt;, &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italics&lt;/em&gt;, a numbered margin note.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-0&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-0&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;The note. E.g.: &lt;a href=&quot;#&quot;&gt;a link&lt;/a&gt;.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;jQuery applies a &lt;code&gt;newthought&lt;/code&gt; span in the first word of the first paragraph element of each post.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-1&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-1&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;Generated by pure markdown.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;h1&quot;&gt;H1&lt;/h3&gt;
+&lt;h4 id=&quot;h2&quot;&gt;H2&lt;/h4&gt;
+&lt;h5 id=&quot;h3&quot;&gt;H3&lt;/h5&gt;
+&lt;h6 id=&quot;h4&quot;&gt;H4&lt;/h6&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus &lt;a href=&quot;#&quot;&gt;tincidunt&lt;/a&gt; quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed &lt;a href=&quot;#&quot;&gt;finibus mauris&lt;/a&gt; non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, &lt;a href=&quot;#&quot;&gt;scelerisque&lt;/a&gt; &lt;a href=&quot;#&quot;&gt;eget&lt;/a&gt; &lt;a href=&quot;#&quot;&gt;pharetra&lt;/a&gt; sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-2&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-2&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;Another note.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb1&quot;&gt;&lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;&lt;span id=&quot;cb1-1&quot;&gt;&lt;a href=&quot;#cb1-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;co&quot;&gt;# a code block with syntax highlighting&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb1-2&quot;&gt;&lt;a href=&quot;#cb1-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; hello():&lt;/span&gt;
+&lt;span id=&quot;cb1-3&quot;&gt;&lt;a href=&quot;#cb1-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Unordered list&lt;/li&gt;
+&lt;li&gt;Few&lt;/li&gt;
+&lt;li&gt;Items&lt;/li&gt;
+&lt;li&gt;To check out&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-3&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-3&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;An explainer.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt; An academic bibliography reference. &lt;span class=&quot;citation&quot; data-cites=&quot;wilson2017good&quot;&gt;[&lt;a href=&quot;#ref-wilson2017good&quot; role=&quot;doc-biblioref&quot;&gt;1&lt;/a&gt;]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A code block.&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot; id=&quot;cb2&quot;&gt;&lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;&lt;span id=&quot;cb2-1&quot;&gt;&lt;a href=&quot;#cb2-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;im&quot;&gt;import&lt;/span&gt; re&lt;/span&gt;
+&lt;span id=&quot;cb2-2&quot;&gt;&lt;a href=&quot;#cb2-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-3&quot;&gt;&lt;a href=&quot;#cb2-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;var &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;va&quot;&gt;True&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;# Comment&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-4&quot;&gt;&lt;a href=&quot;#cb2-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-5&quot;&gt;&lt;a href=&quot;#cb2-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;cf&quot;&gt;for&lt;/span&gt; test_string &lt;span class=&quot;kw&quot;&gt;in&lt;/span&gt; [&lt;span class=&quot;st&quot;&gt;&amp;#39;555-1212&amp;#39;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;#39;ILL-EGAL&amp;#39;&lt;/span&gt;]:&lt;/span&gt;
+&lt;span id=&quot;cb2-6&quot;&gt;&lt;a href=&quot;#cb2-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;cf&quot;&gt;if&lt;/span&gt; re.match(&lt;span class=&quot;vs&quot;&gt;r&amp;#39;^\d&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;{3}&lt;/span&gt;&lt;span class=&quot;vs&quot;&gt;-\d&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;{4}&lt;/span&gt;&lt;span class=&quot;vs&quot;&gt;$&amp;#39;&lt;/span&gt;, test_string):&lt;/span&gt;
+&lt;span id=&quot;cb2-7&quot;&gt;&lt;a href=&quot;#cb2-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;print&lt;/span&gt; test_string, &lt;span class=&quot;st&quot;&gt;&amp;#39;is a valid US local phone number&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;span id=&quot;cb2-8&quot;&gt;&lt;a href=&quot;#cb2-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;  &lt;span class=&quot;cf&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;
+&lt;span id=&quot;cb2-9&quot;&gt;&lt;a href=&quot;#cb2-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;    &lt;span class=&quot;bu&quot;&gt;print&lt;/span&gt; test_string, &lt;span class=&quot;st&quot;&gt;&amp;#39;rejected&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;Ordered list&lt;/li&gt;
+&lt;li&gt;Few&lt;/li&gt;
+&lt;li&gt;Items&lt;/li&gt;
+&lt;li&gt;To check out&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Paragraph with “smart quotes.” &lt;u&gt;Underlined&lt;/u&gt; text.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Tables&lt;/th&gt;
+&lt;th&gt;Are&lt;/th&gt;
+&lt;th&gt;Cool&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;col 1 is&lt;/td&gt;
+&lt;td&gt;left-aligned&lt;/td&gt;
+&lt;td&gt;$1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;col 2 is&lt;/td&gt;
+&lt;td&gt;centered&lt;/td&gt;
+&lt;td&gt;$12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;col 3 is&lt;/td&gt;
+&lt;td&gt;right-aligned&lt;/td&gt;
+&lt;td&gt;$1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus.&lt;span class=&quot;sidenote-wrapper&quot;&gt;&lt;label for=&quot;sn-4&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sn-4&quot; class=&quot;margin-toggle&quot;/&gt;&lt;span class=&quot;sidenote&quot;&gt;Test!&lt;br /&gt;
+&lt;br /&gt;
+&lt;/span&gt;&lt;/span&gt; Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est. fig. 1&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/static/img/figure1.png&quot; title=&quot;An image.&quot; id=&quot;fig:test&quot; alt=&quot;Figure 1: A note about the image.&quot; /&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;Figure 1: A note about the image.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.&lt;/p&gt;
+&lt;h1 class=&quot;unnumbered&quot; id=&quot;bibliography&quot;&gt;References&lt;/h1&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references csl-bib-body&quot; role=&quot;doc-bibliography&quot;&gt;
+&lt;div id=&quot;ref-wilson2017good&quot; class=&quot;csl-entry&quot; role=&quot;doc-biblioentry&quot;&gt;
+&lt;div class=&quot;csl-left-margin&quot;&gt;1. &lt;/div&gt;&lt;div class=&quot;csl-right-inline&quot;&gt;Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., Teal, T.K.: Good enough practices in scientific computing. PLOS Computational Biology. 13, e1005510 (2017).&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+  </entry>
+</feed>

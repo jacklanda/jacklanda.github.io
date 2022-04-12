@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>C++的拷贝与移动 &mdash; 消忧录</title>
+
+  <link type="text/css" rel="stylesheet" href="/static/sdist/e7862ef5212b67fcd3eccfe3375055bd.css">
+
+  <script type="text/javascript" src="/static/sdist/c752cd137614177858641b78f67df408.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' href="/static/favicon.ico" type='image/x-icon'/>
+  <style type="text/css">
+   img { mix-blend-mode: multiply; }
+  </style>
+  <meta property="og:author" content="YangLiu" />
+  <meta property="og:title" content="C++的拷贝与移动" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://lyyl.me/posts/cpp_copy_and_move/" />
+  <meta property="og:image" content="/static/img/athena.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="C++的拷贝与移动" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:url" content="https://lyyl.me/posts/cpp_copy_and_move/" />
+  <meta name="twitter:image" content="/static/img/athena.png" />
+</head>
+<body>
+  <div class="thearticle">
+  
+  <article>
+  
+    <h1>C++的拷贝与移动</h1>
+    <p id="blog-p"><span id="blogdesc" class="marginnote">
+    Aloha<br><br>
+    <a href="/">home</a> ·
+    
+      <a href="/about/">
+        about</a> ·
+    
+    <a href="/feed.atom">subscribe</a></span></p>
+
+    <subtitle class="sub-date">September 07, 2021 · <span
+    style="font-size: 1.6rem;"><a style="border-bottom-width: 0px !important;"
+    href="https://lyyl.me/posts/cpp_copy_and_move/">&infin;</a></span></subtitle>
+
+    <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h5 id="序">序</h5>
+<blockquote>
+<p>试想，搬家的时候是把家里的东西直接搬到新家去，而不是将所有东西拷贝一份（重买）再放到新家、再把原来的东西全部扔掉（销毁），这是非常反人类的一件事情。               —— —— 《现代C++教程》</p>
+</blockquote>
+<p>作为一名初级开发者，每当你向一个函数传入某个参数的时候，是否习惯了 <code>input -&gt; blackbox -&gt; output</code> 这样的黑盒思维，并认为“我不需要关心函数内部到底发生了什么，只需考虑调用什么接口能帮我实现什么样的需求就好了。”、“我可以按着官方文档的说明传参并顺利获取返回值即可，能 work 就行，别的我管不着。”… …</p>
+<p>假如你是一名单纯的 Pythonist，这样或许还情有可原(原因在下文会提到)。但作为一名 C/C++ 程序员乃至系统编程人员，这种思维直接证明了“确实，你是个新手”，且并未领略到 C++ 这门优秀语言的真正优势。”</p>
+<p>这篇文章记录了自己这一周以来学习到的有关“左右值”、“拷贝语义”、“移动语义”的知识，以及可以针对性地考虑使用一些 trick，这可以帮助我们优化程序性能。</p>
+<h6 id="实验环境">实验环境</h6>
+<ul>
+<li>x86-64 gcc 10.1</li>
+<li>汇编代码由在线编译平台 <u><a href="https://godbolt.org/">Compiler Explorer</a></u> 生成。</li>
+<li>涉及的编译标志位：-std=c++11, -std=c++17, -fno-elide-constructors</li>
+</ul>
+<h5 id="prior-knowledge">Prior knowledge</h5>
+<p>本文假定读者已经掌握了面向对象以及 C++ 的构造/析构函数、运算符重载等基本概念。</p>
+<h6 id="区别构造和赋值">区别构造和赋值</h6>
+<h6 id="一样的结果不一样的行为">一样的结果&amp;不一样的行为</h6>
+<p>为了便于理解后面的内容，我们定义了一个 Widget 类。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Widget <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">()</span> <span class="op">=</span> <span class="cf">default</span><span class="op">;</span>                       <span class="co">// 默认构造函数</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">(</span><span class="dt">bool</span> sign<span class="op">)</span> <span class="op">:</span> isAvailable<span class="op">(</span>sign<span class="op">){};</span>  <span class="co">// 普通构造函数</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">(</span><span class="at">const</span> Widget<span class="op">&amp;</span> w<span class="op">)</span> <span class="op">:</span> isAvailable<span class="op">(</span>w<span class="op">.</span>isAvailable<span class="op">){};</span>  <span class="co">// 拷贝构造函数</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">(</span>Widget<span class="op">&amp;&amp;</span> w<span class="op">)</span> <span class="op">:</span> isAvailable<span class="op">(</span><span class="bu">std::</span>exchange<span class="op">(</span>w<span class="op">.</span>isAvailable<span class="op">)){};</span>  <span class="co">// 移动构造函数</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=(</span><span class="at">const</span> Widget<span class="op">&amp;</span> w<span class="op">)</span> <span class="op">{</span>  <span class="co">// 拷贝赋值函数(操作符)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        isAvailable <span class="op">=</span> w<span class="op">.</span>isAvailable<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    Widget<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=(</span>Widget<span class="op">&amp;&amp;</span> w<span class="op">){</span>  <span class="co">// 移动赋值函数(操作符)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        isAvailable <span class="op">=</span> w<span class="op">.</span>isAvailable<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span>Widget<span class="op">(){};</span>  <span class="co">// 析构函数</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bool</span> isAvailable <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> s<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>接着，咱们来创建几个 Widget 类对象</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Widget w1<span class="op">;</span>        <span class="co">// 1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Widget w2<span class="op">(</span><span class="kw">true</span><span class="op">);</span>  <span class="co">// 2</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Widget w3<span class="op">(</span>w1<span class="op">);</span>    <span class="co">// 3</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    Widget w4 <span class="op">=</span> w3<span class="op">;</span>   <span class="co">// 4</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    w4 <span class="op">=</span> w2<span class="op">;</span>          <span class="co">// 5</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>那么问题来了，上面这四种对象的创建方式，他们有什么异同呢？</p>
+<p>首先，你已经观察到我们在 Widget 类中声明并实现了7个特殊成员函数，从上到下依次是：默认构造函数，普通构造函数，拷贝构造函数，拷贝赋值函数，析构函数。</p>
+<ul>
+<li>第1种方式创建了新对象 w1，且在创建时没有任何的入参，调用的是默认构造函数；</li>
+<li>第2种方式根据传入的一个布尔字面量 <code>true</code> 创建了新对象 w2，调用的是普通构造函数；</li>
+<li>第3种方式传入了我们先前创建的 w1 对象，根据现有对象构造新对象 w3，调用了拷贝构造函数；</li>
+<li>第4种方式根据等号右边的现有对象 w3 创建了新对象 w4，同样调用了拷贝构造函数；</li>
+<li>第5种方式看似与第四种方式相同，但不难发现它其实是根据已有对象对同样是已有对象 w4 的重新赋值，因此调用的是拷贝赋值函数，而非拷贝构造函数。</li>
+</ul>
+<p>怎么 C++ 创建一个对象有这么多花里胡哨的方式？ 的确，最初看到这几个语句的时候我也很疑惑，但随着学习的深入，越来越认同“C++ 给了开发者更多的自由，也给了它们更多的心智负担。”但讲到的这部分内容仅仅是给本文开了个头，暂且先带着疑惑，继续读下去吧~</p>
+<p>这里引出了第一个知识点：构造行为和赋值行为。第3和第4条语句的行为其实是完全等效的，实际调用的都是 Widget 的拷贝构造函数 <code>Widget(const Widget&amp; w)</code> 。而第5条语句则是先前已经建立了 w2 与 w4 对象，现在是将 w2 对象赋给 w4 对象，属于赋值行为。</p>
+<p>(n.b. 至此，如果你已经十分清楚上面这些语句为什么行为不同，就不用继续跟进下面的内容了。)</p>
+<h5 id="rule-of-threefivezero">Rule of three/five/zero</h5>
+<p>我们知道 C++11 是 C++ 发展历程中的一个重要版本，引入了许多现代编程语言特性。在 C++11 以前，只有 “Rule of three” 这种说法，C++11 以后，随着移动语义的引入，便扩展为 “Rule of five” 。</p>
+<p>three 指的类内的三个特殊成员函数：拷贝构造、拷贝赋值和析构。我们上边讲的就是 Rule of three 的内容。</p>
+<p>five 指的是在 three 的基础上引入移动语义(下文会讲)，增加了移动构造函数与移动赋值函数(操作符)，加上原来的3个一共就是5个特殊成员函数。程序员需要手动地显式声明与实现这5个特殊成员函数，因而得名 The rule of five。</p>
+<p>zero 则站在 five 的对立面，也就是说：要么将5个特殊成员函数显式地定义清楚(显式地自定义实现 / 显式地设为默认 default / 显式地通过 delete 禁用)，实现 Rule of five；要么就 Rule of zero，干脆啥也不去定义、实现。</p>
+<h5 id="语义分类">语义分类</h5>
+<h6 id="value-categories">Value categories</h6>
+<blockquote>
+<p>Each C++ expression (an operator with its operands, a literal, a variable name, etc.) is characterized by two independent properties: a type and a value categories. Each expression has some non-reference type, and each expression belongs to exactly one of the three primary value categories: prvalue, xvalue, and lvalue. <br>        —— —— cppreference/value categories</p>
+</blockquote>
+<p>上面这段话的意思是：每个 C++ 表达式都具有两个独立的属性，一个是类型 (type)，另一个是值类别 (value categories)，如：char, int, double 这些都是常见的 type；而 value categories 则包含了3种类别：左值、纯右值与将亡值。下面将简单介绍一下这几个类别的含义。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>拥有身份(glvalue)</th>
+<th>不拥有身份</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>可移动 (rvalue)</td>
+<td>xvalue</td>
+<td>prvalue</td>
+</tr>
+<tr class="even">
+<td>不可移动</td>
+<td>lvalue</td>
+<td>不存在</td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="左值lvalue">左值(lvalue)</p>
+<p>顾名思义左值是位于赋值符号=左边的值，准确地说，左值是在内存中有具体内存位置的值，是在表达式(e.g. 赋值表达式=)运算后依然存在的持久对象。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;hello world&quot;</span><span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> num <span class="op">=</span> <span class="dv">1055</span><span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">++</span>num<span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> p_num <span class="op">=</span> <span class="op">&amp;</span>num<span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">&amp;</span> access<span class="op">(){</span> <span class="cf">return</span> num<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>access<span class="op">();</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr<span class="op">[</span><span class="dv">10</span><span class="op">]{};</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>arr<span class="op">[</span><span class="dv">0</span><span class="op">];</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo<span class="op">();</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">&amp;&amp;</span> rr_foo <span class="op">{</span> foo<span class="op">()</span> <span class="op">};</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> A<span class="op">{</span> <span class="dt">int</span> <span class="va">m_a</span><span class="op">{</span><span class="dv">1</span><span class="op">};</span> <span class="op">};</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>A obj<span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>obj<span class="op">.</span><span class="va">m_a</span><span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>A<span class="op">*</span> p_obj <span class="op">=</span> <span class="op">&amp;</span>obj<span class="op">;</span>  <span class="co">// lvalue</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>A<span class="op">&amp;</span> r_obj <span class="op">=</span> obj<span class="op">;</span>  <span class="co">// lvalue</span></span></code></pre></div>
+<p>在上例中，不论是值类型变量 num，指针类型变量 p_num，类类型值对象 obj，类类型指针对象 p_obj，左值引用对象 r_obj，右值引用对象 rr_foo，它们都属于左值。</p>
+<p>lvalue 具有以下特征： - 所有 glvalue 具有的特征 - 可以通过取址运算符获取其地址 - 可修改的左值可用作内建赋值和内建符合赋值运算符的左操作数 - 可以用来初始化左值引用（下文会讲）</p>
+<p class="heading" id="纯右值prvalue">纯右值(prvalue)</p>
+<p>在 C++11 前，value categories 只划分为了左值和右值两种类型，C++11 以后，由于引入移动语义(又是它)的需要，又将右值细分为了纯右值和将亡值。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1055</span><span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span><span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fl">1.0</span> <span class="op">+</span> <span class="fl">2.0</span><span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">{},</span> b<span class="op">{};</span>  <span class="co">// both lvalues</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> b<span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>a<span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>a<span class="op">++;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>b<span class="op">--;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>a <span class="op">&amp;&amp;</span> b<span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>a <span class="op">&lt;</span> b<span class="op">;</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> <span class="op">{};</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>_Tp<span class="op">&gt;</span> <span class="op">{};</span>  <span class="co">// prvalue</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">/* 5. Lambda Expression */</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">[](</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">){</span><span class="cf">return</span> a <span class="op">+</span> b<span class="op">;}</span></span></code></pre></div>
+<p>顾名思义，纯右值就是纯粹的右值，要么是纯粹的字面量，要么是求值结果相当于字面量或匿名临时对象。如上所示，例1和例2是原始字面量；例3属于运算表达式产生的临时变量；例4属于非引用返回的临时变量，在调用 func 函数后将返回一个值对象 obj ，这个值对象会通过拷贝构造函数在 main 函数内产生一个临时对象，这个临时对象属于纯右值；例5则是一个 Lambda 表达式，以上这些表达式在 C++ 里都称为纯右值。</p>
+<p class="heading" id="将亡值xvalue">将亡值(xvalue)</p>
+<p>将亡值是即将被销毁（将亡值对象处于生命期的末尾），但却能够被移动的值。常见的将亡值有：由纯右值实体化创建的临时变量，函数内部将要被 return 的某个局部变量（在它生命的最后时刻）。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">{</span><span class="kw">true</span><span class="op">};</span>  <span class="co">// lvalue</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>move<span class="op">(</span>b<span class="op">);</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">static_cast</span><span class="op">&lt;</span><span class="dt">bool</span><span class="op">&amp;&amp;&gt;(</span>b<span class="op">);</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">&amp;&amp;</span> foo<span class="op">();</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>foo<span class="op">();</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> foo <span class="op">{</span> <span class="dt">int</span> <span class="va">m_a</span><span class="op">;</span> <span class="op">};</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>move<span class="op">(</span>foo<span class="op">()).</span><span class="va">m_a</span><span class="op">;</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>foo<span class="op">{}.</span><span class="va">m_a</span><span class="op">;</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr<span class="op">[</span><span class="dv">10</span><span class="op">]{};</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>move<span class="op">(</span>arr<span class="op">);</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>move<span class="op">(</span>arr<span class="op">)[</span><span class="dv">0</span><span class="op">];</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[</span><span class="dv">10</span><span class="op">]{}[</span><span class="dv">0</span><span class="op">];</span>  <span class="co">// xvalue</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">/* nums 属于 xvalue */</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> create<span class="op">(){</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nums<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nums<span class="op">;</span> <span class="co">// Warning!</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span><span class="op">*</span> arr <span class="op">=</span> create<span class="op">();</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>如上所示的栈数组 nums 是在 create() 内创建的局部变量，如果不采取额外的措施(e.g. 使用 static 将数组分配在静态存储区，or 使用移动语义延长对象的生命期)，编译器将抛出 Warning，因为其指向的对象将在 return 的时候被销毁(由 leave 汇编语句释放当前栈帧使用的资源)。所以在初学 C 语言时，老师反复强调的“不能返回指向当前栈帧内存的局部变量”就是这么来的。</p>
+<p>xvalue 具有所有 glvalue 和 rvalue 拥有的特征。</p>
+<h6 id="左右值引用引用坍缩">左/右值引用&amp;引用坍缩</h6>
+<p>好了，现在我们知道什么是左值、纯右值与将亡值了。接着讲一下基于左值的左值引用以及基于右值的右值引用。</p>
+<p class="heading" id="左值引用">左值引用</p>
+<p>C++11 前，我们所说的引用没有歧义，指的就是对左值进行引用。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;type_traits&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">{};</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>boolalpha<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_lvalue_reference<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: false</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_lvalue_reference<span class="op">&lt;</span><span class="dt">int</span><span class="op">&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: true</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_lvalue_reference<span class="op">&lt;</span>A<span class="op">&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>   <span class="co">// 输出: false</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_lvalue_reference<span class="op">&lt;</span>A<span class="op">&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: true</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>btw, C++ 里的左值引用其实暗含了一次对指向对象的解引用操作，原因在于 <code>int&amp;</code> ↔︎ <code>int* const</code>，<code>A&amp;</code> ↔︎ <code>A* const</code> 。</p>
+<p class="heading" id="右值引用">右值引用</p>
+<blockquote>
+<p>传统的 C++ 没有区分『移动』和 『拷贝』的概念，造成了大量的数据拷贝，浪费时间和空间。右值引用的出现恰好就解决了这两个概念的混淆问题。  —— —— 《现代C++教程》</p>
+</blockquote>
+<p>C++11 提出了右值引用这一概念，合理化了 <code>int&amp;&amp; num = 3</code> 这种对右值3取引用的写法。此外，C++11 提供了 <code>std::move</code> 方法让我们可以把左值无条件地转换为右值(viz. xvalue)。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;type_traits&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">{};</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>boolalpha<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span>A<span class="op">&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: false</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span>A<span class="op">&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: false</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span>A<span class="op">&amp;&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: true</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: false</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span><span class="dt">int</span><span class="op">&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: false</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="bu">std::</span>is_rvalue_reference<span class="op">&lt;</span><span class="dt">int</span><span class="op">&amp;&amp;&gt;::</span>value <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 输出: true</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p class="heading" id="引用坍缩">引用坍缩</p>
+<p>传统C++里规定不能对一个引用类型继续进行引用，但在右值引用出现后就允许我们对引用进行新的左/右引用，即产生了所谓的引用坍缩规则:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">函数形参类型</th>
+<th style="text-align: left;">实参参数类型</th>
+<th style="text-align: left;">推导后函数形参类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">T&amp;</td>
+<td style="text-align: left;">左引用</td>
+<td style="text-align: left;">T&amp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T&amp;</td>
+<td style="text-align: left;">右引用</td>
+<td style="text-align: left;">T&amp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T&amp;&amp;</td>
+<td style="text-align: left;">左引用</td>
+<td style="text-align: left;">T&amp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T&amp;&amp;</td>
+<td style="text-align: left;">右引用</td>
+<td style="text-align: left;">T&amp;&amp;</td>
+</tr>
+</tbody>
+</table>
+<p>因为引用坍缩的存在，如果我们希望入参在调用函数内部保持传入前的参数类型，则需通过 <code>std::forward</code> 进行完美转发，详细用法网上有很多，这里就不展开了。</p>
+<h6 id="a-和-a-的区别">++a 和 a++ 的区别？</h6>
+<p>C 语言课上，老师从使用效果上讲过 ++a 和 a++ 的区别：++a 表示变量值 a 先自增加1后返回这个值，a++ 叫后自增，表示自增 + 1 了，但返回的是自增前的变量值。但这一过程是如何是实现的呢？</p>
+<p>现在，我们知道了左右值以及它们引用的概念，可以从代码上来一窥究竟了：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* 前缀自增 */</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">&amp;</span> <span class="dt">int</span><span class="op">::</span><span class="kw">operator</span><span class="op">++(){</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span><span class="kw">this</span> <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">/* 后缀自增 */</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">int</span> <span class="dt">int</span><span class="op">::</span><span class="kw">operator</span><span class="op">++(</span><span class="dt">int</span><span class="op">){</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> old_val <span class="op">=</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">++(*</span><span class="kw">this</span><span class="op">);</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> old_val<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>也许，看了上面的代码，你会对左右值以及自增运算符有了更清晰的认识。</p>
+<h6 id="所有权">所有权</h6>
+<p>在讲拷贝/移动语义前，笔者打算简单说一下自己对于 “所有权(Ownership)” 概念的理解。笔者最初在学 Rust 的时候接触的“所有权”这一概念，不同于 C++ 语句默认采用拷贝语义，Rust 语句默认使用移动语义，也正是由于所有权的规约，无 GC 的 Rust 一直以高效、内存安全著称。</p>
+<p>首先明确一点，所有权针对的是堆区内存，因为栈区内存是编译期确定且随着函数栈帧的创建/释放自动管理的，而堆区内存的分配和使用只有运行时才得以确定，因此 Rust 所有权的职责说白了就是追踪堆内存数据的动向。</p>
+<h6 id="拷贝语义">拷贝语义</h6>
+<p>如<a href="#一样的结果不一样的行为">本文开头</a>所举的那个例子，C++ 中的拷贝语义由拷贝构造函数和拷贝赋值操作符承担。 - 拷贝构造函数 (Copy Construction)：负责让对象被创建作为一个对现有对象的副本 的类内特殊成员函数。 - 拷贝赋值操作符 (Copy Assignment)：负责让现有对象的内容被赋值替换为另一现有对象的内容 的类内特殊成员函数。</p>
+<p class="heading" id="自定义拷贝构造函数">自定义拷贝构造函数</p>
+<p>在使用类库的时候，我们可以使用 <code>std::vector&lt;int&gt; new_vec = old_vec;</code> 这样的写法，是因为类库中的模板类 vector 已经给我们实现好了拷贝构造函数。对于我们自己的类，设计时如果用到了拷贝语义，就需要手动实现一份拷贝构造函数。</p>
+<p>如下，假设我们需要设计一个自己的 vector 模板类。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> vector<span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* copy construction */</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">(</span><span class="at">const</span> vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> other<span class="op">){</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">m_size</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">m_capacity</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_capacity</span><span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">std::</span>copy<span class="op">(</span>other<span class="op">.</span><span class="va">m_elems</span><span class="op">,</span> other<span class="op">.</span><span class="va">m_elems</span> <span class="op">+</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">,</span> <span class="va">m_elems</span><span class="op">);</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">size_t</span> <span class="va">m_size</span><span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">size_t</span> <span class="va">m_capacity</span><span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span><span class="op">*</span> <span class="va">m_elems</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p class="heading" id="自定义拷贝赋值操作符">自定义拷贝赋值操作符</p>
+<p>同理，我们也需要自己实现赋值操作符的重载。</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* copy assignment */</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">&amp;</span> vector<span class="op">::</span><span class="kw">operator</span><span class="op">=(</span><span class="at">const</span> vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> other<span class="op">){</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">m_size</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">m_capacity</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_capacity</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        resize<span class="op">(</span><span class="va">m_size</span><span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">std::</span>copy<span class="op">(</span>other<span class="op">.</span><span class="va">m_elems</span><span class="op">,</span> other<span class="op">.</span><span class="va">m_elems</span> <span class="op">+</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">,</span> <span class="va">m_elems</span><span class="op">);</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span></code></pre></div>
+<h6 id="移动语义">移动语义</h6>
+<p>终于讲到移动啦！与 Rust 对左值的“直接移动”不同，C++ 的移动语义需要先通过 <code>std::move()</code> 将左值转换为将亡值(n.b. C++ 中只有右值可以被 move)，然后再将此将亡值赋给新的变量（借助移动构造/赋值函数），这才走完了所有权移动的过程。</p>
+<p>上面提过的 xvalue, prvalue 以及 lvalue ，这三者遵循着一套移动规则以及对应着不同的构造方法： |Value categories|移动规则 |调用构造方法| |:—————|:——————|:—————–| |xvalue |可以被直接移动 |调用移动构造函数 | |prvale |被移动的时候，会生成一个临时变量 xvalue，这个 xvalue 被移动了 |prvalue 初始化 lvalue，直接构建，不调用拷贝/移动构造函数 | |lvalue |移动时需要使用 std::move 将 lvalue 变成 xvalue，然后再移动这个 xvalue |调用拷贝构造函数 |</p>
+<p>发生移动后，原来的被移动的变量指向的值的所有权转移到了新的变量中，原变量变成了“空值”状态。在下面的这个例子中，我们通过 std::move 将变量 old_str 变成了一个 xvalue，并将它赋给变量 new_str，这时候将程序调用 std::string 类型的移动函数来操作与管理 old_str 指向的资源 “hello world”</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string<span class="op"> </span>old_str <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string<span class="op"> </span>new_str <span class="op">=</span> <span class="bu">std::</span>move<span class="op">(</span>old_str<span class="op">);</span>  <span class="co">// after moved, old_str == &quot;&quot;, new_str == &quot;hello world&quot;;</span></span></code></pre></div>
+<p class="heading" id="自定义移动构造函数">自定义移动构造函数</p>
+<p>同样，我们实现一个移动构造函数</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">/* move construction */</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>vector<span class="op">(</span><span class="at">const</span> vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;</span> other<span class="op">){</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_size</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_capacity</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_capacity</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_elems</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_elems</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_size</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_capacity</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_elems</span> <span class="op">=</span> <span class="kw">nullptr</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span></code></pre></div>
+<p class="heading" id="自定义移动赋值操作符">自定义移动赋值操作符</p>
+<p>以及，重载移动赋值操作符。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">/* move alignment */</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>vector<span class="op">&amp;</span> vector<span class="op">::</span><span class="kw">operator</span><span class="op">=(</span>vector<span class="op">&lt;</span>T<span class="op">&gt;&amp;&amp;</span> other<span class="op">){</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_size</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_size</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_capacity</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_capacity</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    resize<span class="op">(</span><span class="va">m_size</span><span class="op">);</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">m_elems</span> <span class="op">=</span> other<span class="op">.</span><span class="va">m_elems</span><span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_size</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_capacity</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    other<span class="op">.</span><span class="va">m_elems</span> <span class="op">=</span> <span class="kw">nullptr</span><span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">*</span><span class="kw">this</span><span class="op">;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span></code></pre></div>
+<h5 id="性能优化">性能优化</h5>
+<h6 id="编译期优化">编译期优化</h6>
+<p>Copy elision 和 RVO/NRVO 是两套独立的优化策略。 ##### 拷贝省略 拷贝省略（Copy elision）是编译期的重要优化之一，将不需要的 copy/move 操作以及析构操作在编译期直接去除，从而减少多次操作带来的开销。我们将用一个例子说明在拷贝省略的过程中编译器究竟为我们做了哪些事情。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    A<span class="op">()</span> <span class="op">{</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;Constructed</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    A<span class="op">(</span><span class="at">const</span> A<span class="op">&amp;)</span> <span class="op">{</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;Copied</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    A<span class="op">(</span>A<span class="op">&amp;&amp;)</span> <span class="op">{</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;Moved</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>A create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    A obj_create<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> obj_create<span class="op">;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    A obj <span class="op">=</span> create<span class="op">();</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>不管是 C++11 还是 C++17 ，它们都把拷贝省略把移动操作(对拷贝同理，没有移动构造函数的时候省略拷贝构造函数)给省略了。那么不禁要问是在什么时候发生的以及是怎么省略的呢？</p>
+<p>这里先给出结论：如果不发生拷贝省略，C++11 编译出的 <code>A obj = create();</code> 语句将发生下面的5件事：</p>
+<ol type="1">
+<li>调用函数 create 前，使用一块内存 “obj_mem” 用来存储对象 obj；</li>
+<li>准备进入函数 create 栈帧前，选择一块临时内存 “tmp_mem” 来接收函数的返回值；</li>
+<li>压入 create 函数栈帧后，选择一块当前函数帧上的内存来创建局部对象 obj_create；</li>
+<li>函数返回时，将局部对象 obj_create 移动到上个函数帧的临时内存 “tmp_mem” 上；</li>
+<li>“赋值”的时候，从 “tmp_mem” 上将 obj_create 的内容移动给“obj_mem”。</li>
+</ol>
+<p>可以看到这个过程一共发生了两次移动（第四和第五步），为了进一步验证其背后的行为，我们来探索上例编译后生成的汇编代码。</p>
+<p>让我们关闭编译器的拷贝优化，观察没有拷贝省略的时候会发生什么。</p>
+<p>使用 C++11 编译代码并运行 <code>clang++ -std=c++11 -fno-elide-constructors main.cpp -o main &amp;&amp; ./main</code> ，输出：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Moved</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Moved</span></span></code></pre></div>
+<p>生成汇编如下： create(): push rbp mov rbp, rsp sub rsp, 32 mov QWORD PTR [rbp-24], rdi lea rax, [rbp-1] mov rdi, rax call A::A() [complete object constructor] lea rdx, [rbp-1] mov rax, QWORD PTR [rbp-24] mov rsi, rdx mov rdi, rax call A::A(A&amp;&amp;) [complete object constructor] mov rax, QWORD PTR [rbp-24] leave ret main: push rbp mov rbp, rsp sub rsp, 16 lea rax, [rbp-1] mov rdi, rax call create() lea rdx, [rbp-1] lea rax, [rbp-2] mov rsi, rdx mov rdi, rax call A::A(A&amp;&amp;) [complete object constructor] mov eax, 0 leave ret</p>
+<p>可以看到，在 C++11 无拷贝优化下，我们的代码在 create() 与 main() 里分别 call 了两次 A::A(A&amp;&amp;)，即两次移动构造。</p>
+<p>使用 C++17 编译代码和运行 <code>clang++ -std=c++17 -fno-elide-constructors main.cpp -o main &amp;&amp; ./main</code> ，输出：</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Moved</span></span></code></pre></div>
+<p>生成汇编如下： create(): push rbp mov rbp, rsp sub rsp, 32 mov QWORD PTR [rbp-24], rdi lea rax, [rbp-1] mov rdi, rax call A::A() [complete object constructor] lea rdx, [rbp-1] mov rax, QWORD PTR [rbp-24] mov rsi, rdx mov rdi, rax call A::A(A&amp;&amp;) [complete object constructor] mov rax, QWORD PTR [rbp-24] leave ret main: push rbp mov rbp, rsp sub rsp, 16 lea rax, [rbp-1] mov rdi, rax call create() mov eax, 0 leave ret</p>
+<p>可见，在 C++17 无拷贝优化下，我们的代码只在 create() 中调用了一次移动构造函数 A::A(A&amp;&amp;) 。</p>
+<p>很神奇的发现：在对象被构造出来后，C++11 分别在 create() 和 main() 内 各自 move 了一次，C++17 只在 create() 内 move 了一次。</p>
+<p>如果我们启用拷贝省略进行编译：<code>g++ -std=c++11 main.cpp -o main &amp;&amp; ./main</code> (<code>g++ -std=c++17 main.cpp -o main &amp;&amp; ./main</code>) 这时候会发生什么呢？</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span></code></pre></div>
+<p>对应的汇编如下：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">A:</span>:A<span class="op">()</span> <span class="op">[</span>base object constructor<span class="op">]:</span>  <span class="co">; 类A</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">esi</span><span class="op">,</span> OFFSET FLAT<span class="op">:.</span>LC0</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">edi</span><span class="op">,</span> OFFSET FLAT<span class="op">:</span>_ZSt4cout</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;</span> std<span class="op">::</span>operator<span class="op">&lt;&lt;</span> <span class="op">&lt;</span>std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;(</span>std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;,</span> char const<span class="op">*)</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>create<span class="op">():</span>  <span class="co">; create()函数入口</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span>  <span class="co">; 将rdi内容赋给内存中的[rbp-8]处，QWORD PTR 意为解释后接内存区域[rbp-8]为4个字(8字节)的指针类型</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    A<span class="op">::</span>A<span class="op">()</span> <span class="op">[</span>complete object constructor<span class="op">]</span>  <span class="co">; 调用类A的普通构造函数</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span>  <span class="co">; main()函数入口</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rax</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span>   <span class="co">; 将 [rbp-1] 内存的地址(非内存中存储的内容)赋给rax寄存器</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    create<span class="op">()</span>  <span class="co">; 调用create函数</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">eax</span><span class="op">,</span> <span class="dv">0</span> <span class="co">;  将eax寄存器内容置零</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span></code></pre></div>
+<p>启用拷贝优化后汇编只是 call 了普通构造函数，再没有别的拷贝/移动操作了。原来，编译器默默地帮我们做了这么多事情 ٩(๑&gt;◡&lt;๑)۶</p>
+<p>现在我们知道了编译器会默认帮我们开启拷贝省略，从而我们写的代码一次移动都没做。此外如果关闭了拷贝省略，就会因为 C++17 后编译器默认使用 RVO ，可选使用 NRVO ，所以只有产生了一次移动操作；而 C++11 标准下编译器默认不会帮你做这两件事情，对应产生了两次理应被优化掉的移动操作。</p>
+<p>所以，什么是 RVO 与 NRVO 呢？</p>
+<p class="heading" id="rvo-与-nrvo">RVO 与 NRVO</p>
+<p>RVO 是英文 return value optimization 的缩写，NRVO 是英文 named return value optimization 的缩写。</p>
+<p>下面的这段解释来自知乎上一位网友的文章（见文末参考[8]） &gt; RVO是返回值优化，就是将返回值的创建省略了。NRVO是函数内具有名字的局部变量充当返回值的时候，它的创建也被省略了。它们的省略结果都是在最终的变量里创建对象。</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 写法一</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Verbose<span class="op">();</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">//写法二</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> v<span class="op">;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">//写法三</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>move<span class="op">(</span>v<span class="op">);</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>这里首推写法一，因为在使用现代编译器的前提下(C++11后)，会默认将这段代码编译成直接在主调函数帧上原地构造对象，忽略了无编译优化条件下的两次移动操作，也就是我们前文提到的 copy elision。</p>
+<p>如果编译器支持，那么针对写法二会进行 NRVO 优化。 &gt; 在C++没有move的时候，很多编译器实现就支持RVO(return value optimization)和NRVO(named return value optimization)。这两种优化用于在返回值的时候避免不必要的copy。在C++11以后，引入了move，move的存在与copy elision交织在一起。在这里直接给出答案，写法一是推荐的，写法二场景需要就推荐，而写法三是不推荐的。</p>
+<blockquote>
+<p>C++17以后，RVO是保证会发生的，因为标准这么定义了。而NRVO并没有保证会发生，但是大部分编译器都会实现。所以在C++17里面，没有copy elision的时候只有一个moved，因为RVO也存在，而这个moved，是由于NRVO没有开启生成的。如果开启优化，那么一个moved也没有，因为NRVO把这个moved给优化掉了。当用prvalue创建对象的时候，直接会构造对象，而不用调用那几个构造函数。</p>
+</blockquote>
+<h6 id="开发层优化">开发层优化</h6>
+<p class="heading" id="入参主动转换为右值">入参主动转换为右值</p>
+<p>设置函数形参为右值引用，入参强制左值转换为右值，这样可以直接降低入参拷贝产生的性能开销。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> vec<span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span>vec<span class="op">);</span>  <span class="co">// 入参为左值引用</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span><span class="bu">std::</span>move<span class="op">(</span>vec<span class="op">));</span>  <span class="co">// 入参为右值引用</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;----------------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span>  <span class="co">// Output nothing.</span></span></code></pre></div>
+<p>对于上面的代码段，左值 vec 在 move() 作用下转变为了一个 xvalue 值，并作为函数 take() 的入参，从输出的结果上看，调用 move() 函数前左值 vec 拥有 <code>vector对象 {6, 6, 6}</code> 的所有权，调用 move() 后， vector 对象所有权转移给了 take() 函数的形参 param_vec ，变量 vec 也就不再拥有对原 vector 对象的所有权了。</p>
+<h5 id="跋">跋</h5>
+<p>总结一下，我们首先讨论了 C++ 对象操作中的构造与赋值这两种行为，接着介绍了左值/右值的概念并阐述了细分右值概念的原因，而紧接的右值引用正是在细分右值后的将亡值做文章，借助右值引用概念，我们引入并讨论了本文的核心内容 —— 移动语义。最后，简单介绍了像 Copy elision 这样的现代 C++ 编译器中的编译优化技术，最后展示了笔者学习过程中所记录的几个最佳实践。</p>
+<p>在 C++ 的众多技术(哲学)里，笔者所认为的理解难度与重要程度较大的几个概念有：拷贝与移动语义、RAII 与智能指针、多线程、协程以及模板元编程。后面如果有时间，将另开新的文章，继续其余几个话题的讨论，敬请期待。<del>咕咕咕🕊️</del></p>
+<h5 id="参考引用">参考&amp;引用</h5>
+<ul>
+<li>[1] <a href="https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1184/lectures/lecture14/14_Constructors_and_Assignment.pdf">CS106L Standard C++ Programming</a></li>
+<li>[2] <a href="https://en.cppreference.com/w/cpp/language/copy_elision">Copy Elision</a></li>
+<li>[3] <a href="https://en.cppreference.com/w/cpp/language/rule_of_three">The rule of three/five/zero</a></li>
+<li>[4] <a href="https://en.cppreference.com/w/cpp/language/Zero-overhead_principle">Zero-overhead principle</a></li>
+<li>[5] <a href="https://en.cppreference.com/w/cpp/language/value_category">Value categories</a></li>
+<li>[6] <a href="https://changkun.de/modern-cpp/pdf/modern-cpp-tutorial-zh-cn.pdf">《现代 C++ 教程：高速上手 C++11/14/17/20》</a></li>
+<li>[7] <a href="http://www.sunistudio.com/cppfaq/">C++ FAQ LITE</a></li>
+<li>[8] <a href="https://zhuanlan.zhihu.com/p/379566824">Copy/move elision: C++ 17 vs C++ 11</a></li>
+</ul>
+</body>
+</html>
+
+  
+  </article>
+  
+  </div>
+  <div class="thefooter">
+    <p>Any way the wind blows.
+    <br><br>©Copyright, <i>2019-2022</i>
+  </div> <!-- footer end -->
+</body>
+</html>
