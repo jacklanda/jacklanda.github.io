@@ -65,9 +65,9 @@ h3:hover>.heading-anchor {
 }
 
 @font-face {
-  font-family: SourceSansPro;
-  src: url("source-sans-pro-regular.woff") format("woff"),
-       url("source-sans-pro-regular.woff") format("woff2");
+  font-family: SourceHanSerifCN;
+  src: url("SourceHanSerifCN.woff2") format("woff"),
+       url("SourceHanSerifCN.woff2") format("woff2");
   font-weight: normal;
 }
 
@@ -78,7 +78,7 @@ body { width: auto;
        margin-right: auto;
        padding-left: 15% !important;
        padding-right: 0 !important;
-       font-family: ETBembo, SourceSansPro, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: ETBembo, SourceHanSerifCN, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
@@ -463,7 +463,7 @@ body { width: auto;
        margin-left: auto;
        margin-right: auto;
        padding: 0 1rem 0 2rem !important;
-       font-family: SourceSansPro, ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: SourceHanSerifCN, ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
