@@ -64,6 +64,13 @@ h3:hover>.heading-anchor {
       url("menlo-regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: SourceSansPro;
+  src: url("source-sans-pro-regular.woff") format("woff"),
+       url("source-sans-pro-regular.woff") format("woff2");
+  font-weight: normal;
+}
+
 html { font-size: 16px !important; }
 
 body { width: auto;
@@ -71,7 +78,7 @@ body { width: auto;
        margin-right: auto;
        padding-left: 15% !important;
        padding-right: 0 !important;
-       font-family: ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: ETBembo, SourceSansPro, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
@@ -456,7 +463,7 @@ body { width: auto;
        margin-left: auto;
        margin-right: auto;
        padding: 0 1rem 0 2rem !important;
-       font-family: ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: SourceSansPro, ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
