@@ -78,7 +78,7 @@ body { width: auto;
        margin-right: auto;
        padding-left: 15% !important;
        padding-right: 0 !important;
-       font-family: ETBembo, SourceHanSerifCN, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: ETBembo, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
@@ -463,7 +463,7 @@ body { width: auto;
        margin-left: auto;
        margin-right: auto;
        padding: 0 1rem 0 2rem !important;
-       font-family: SourceHanSerifCN, ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       font-family: ETBembo, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
        background-color: #fffff8;
        color: #111;
        max-width: 1400px !important;
@@ -529,7 +529,7 @@ body { width: auto;
 }
 
 .thefooter p {
-  line-height: 1rem;
+  line-height: 1.4rem;
   font-size: 1rem;
 }
 
