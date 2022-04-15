@@ -545,7 +545,38 @@
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span></code></pre></div>
 <h4 id="移动语义">移动语义</h4>
 <p>终于讲到移动啦！与 Rust 对左值的“直接移动”不同，C++ 的移动语义需要先通过 <code>std::move()</code> 将左值转换为将亡值(n.b. C++ 中只有右值可以被 move)，然后再将此将亡值赋给新的变量（借助移动构造/赋值函数），这才走完了所有权移动的过程。</p>
-<p>上面提过的 xvalue, prvalue 以及 lvalue ，这三者遵循着一套移动规则以及对应着不同的构造方法： |Value categories|移动规则 |调用构造方法| |:—————|:——————|:—————–| |xvalue |可以被直接移动 |调用移动构造函数 | |prvale |被移动的时候，会生成一个临时变量 xvalue，这个 xvalue 被移动了 |prvalue 初始化 lvalue，直接构建，不调用拷贝/移动构造函数 | |lvalue |移动时需要使用 std::move 将 lvalue 变成 xvalue，然后再移动这个 xvalue |调用拷贝构造函数 |</p>
+<p>上面提过的 xvalue, prvalue 以及 lvalue ，这三者遵循着一套移动规则以及对应着不同的构造方法：</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 35%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Value categories</th>
+<th style="text-align: left;">移动规则</th>
+<th style="text-align: left;">调用构造方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">xvalue</td>
+<td style="text-align: left;">可以被直接移动</td>
+<td style="text-align: left;">调用移动构造函数</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">prvale</td>
+<td style="text-align: left;">被移动的时候，会生成一个临时变量 xvalue，这个 xvalue 被移动了</td>
+<td style="text-align: left;">prvalue 初始化 lvalue，直接构建，不调用拷贝/移动构造函数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lvalue</td>
+<td style="text-align: left;">移动时需要使用 std::move 将 lvalue 变成 xvalue，然后再移动这个 xvalue</td>
+<td style="text-align: left;">调用拷贝构造函数</td>
+</tr>
+</tbody>
+</table>
 <p>发生移动后，原来的被移动的变量指向的值的所有权转移到了新的变量中，原变量变成了“空值”状态。在下面的这个例子中，我们通过 std::move 将变量 old_str 变成了一个 xvalue，并将它赋给变量 new_str，这时候将程序调用 std::string 类型的移动函数来操作与管理 old_str 指向的资源 “hello world”</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string<span class="op"> </span>old_str <span class="op">=</span> <span class="st">&quot;hello world&quot;</span><span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string<span class="op"> </span>new_str <span class="op">=</span> <span class="bu">std::</span>move<span class="op">(</span>old_str<span class="op">);</span>  <span class="co">// after moved, old_str == &quot;&quot;, new_str == &quot;hello world&quot;;</span></span></code></pre></div>
@@ -648,65 +679,91 @@
 <p>使用 C++17 编译代码和运行 <code>clang++ -std=c++17 -fno-elide-constructors main.cpp -o main &amp;&amp; ./main</code> ，输出：</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Moved</span></span></code></pre></div>
-<p>生成汇编如下： create(): push rbp mov rbp, rsp sub rsp, 32 mov QWORD PTR [rbp-24], rdi lea rax, [rbp-1] mov rdi, rax call A::A() [complete object constructor] lea rdx, [rbp-1] mov rax, QWORD PTR [rbp-24] mov rsi, rdx mov rdi, rax call A::A(A&amp;&amp;) [complete object constructor] mov rax, QWORD PTR [rbp-24] leave ret main: push rbp mov rbp, rsp sub rsp, 16 lea rax, [rbp-1] mov rdi, rax call create() mov eax, 0 leave ret</p>
+<p>生成汇编如下：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>create<span class="op">():</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">32</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">],</span> <span class="kw">rdi</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rax</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    A<span class="op">::</span>A<span class="op">()</span> <span class="op">[</span>complete object constructor<span class="op">]</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rdx</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">]</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rsi</span><span class="op">,</span> <span class="kw">rdx</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    A<span class="op">::</span>A<span class="op">(</span>A<span class="op">&amp;&amp;)</span> <span class="op">[</span>complete object constructor<span class="op">]</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">]</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rax</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    create<span class="op">()</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">eax</span><span class="op">,</span> <span class="dv">0</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span></code></pre></div>
 <p>可见，在 C++17 无拷贝优化下，我们的代码只在 create() 中调用了一次移动构造函数 A::A(A&amp;&amp;) 。</p>
 <p>很神奇的发现：在对象被构造出来后，C++11 分别在 create() 和 main() 内 各自 move 了一次，C++17 只在 create() 内 move 了一次。</p>
 <p>如果我们启用拷贝省略进行编译：<code>g++ -std=c++11 main.cpp -o main &amp;&amp; ./main</code> (<code>g++ -std=c++17 main.cpp -o main &amp;&amp; ./main</code>) 这时候会发生什么呢？</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Constructed</span></span></code></pre></div>
 <p>对应的汇编如下：</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">A:</span>:A<span class="op">()</span> <span class="op">[</span>base object constructor<span class="op">]:</span>  <span class="co">; 类A</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">esi</span><span class="op">,</span> OFFSET FLAT<span class="op">:.</span>LC0</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">edi</span><span class="op">,</span> OFFSET FLAT<span class="op">:</span>_ZSt4cout</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;</span> std<span class="op">::</span>operator<span class="op">&lt;&lt;</span> <span class="op">&lt;</span>std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;(</span>std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;,</span> char const<span class="op">*)</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>create<span class="op">():</span>  <span class="co">; create()函数入口</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span>  <span class="co">; 将rdi内容赋给内存中的[rbp-8]处，QWORD PTR 意为解释后接内存区域[rbp-8]为4个字(8字节)的指针类型</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    A<span class="op">::</span>A<span class="op">()</span> <span class="op">[</span>complete object constructor<span class="op">]</span>  <span class="co">; 调用类A的普通构造函数</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span>  <span class="co">; main()函数入口</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rax</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span>   <span class="co">; 将 [rbp-1] 内存的地址(非内存中存储的内容)赋给rax寄存器</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    create<span class="op">()</span>  <span class="co">; 调用create函数</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">eax</span><span class="op">,</span> <span class="dv">0</span> <span class="co">;  将eax寄存器内容置零</span></span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">A:</span>:A<span class="op">()</span> <span class="op">[</span>base object constructor<span class="op">]:</span>  <span class="co">; 类A</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">esi</span><span class="op">,</span> OFFSET FLAT<span class="op">:.</span>LC0</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">edi</span><span class="op">,</span> OFFSET FLAT<span class="op">:</span>_ZSt4cout</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;</span> std<span class="op">::</span>operator<span class="op">&lt;&lt;</span> <span class="op">&lt;</span>std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;(</span>std<span class="op">::</span>basic_ostream<span class="op">&lt;</span>char<span class="op">,</span> std<span class="op">::</span>char_traits<span class="op">&lt;</span>char<span class="op">&gt;</span> <span class="op">&gt;&amp;,</span> char const<span class="op">*)</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>create<span class="op">():</span>  <span class="co">; create()函数入口</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rdi</span>  <span class="co">; 将rdi内容赋给内存中的[rbp-8]处，QWORD PTR 意为解释后接内存区域[rbp-8]为4个字(8字节)的指针类型</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    A<span class="op">::</span>A<span class="op">()</span> <span class="op">[</span>complete object constructor<span class="op">]</span>  <span class="co">; 调用类A的普通构造函数</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">nop</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span>  <span class="co">; main()函数入口</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">push</span>    <span class="kw">rbp</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rbp</span><span class="op">,</span> <span class="kw">rsp</span>  <span class="co">; 函数帧序言</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sub</span>     <span class="kw">rsp</span><span class="op">,</span> <span class="dv">16</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rax</span><span class="op">,</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">1</span><span class="op">]</span>   <span class="co">; 将 [rbp-1] 内存的地址(非内存中存储的内容)赋给rax寄存器</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rdi</span><span class="op">,</span> <span class="kw">rax</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">call</span>    create<span class="op">()</span>  <span class="co">; 调用create函数</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">eax</span><span class="op">,</span> <span class="dv">0</span> <span class="co">;  将eax寄存器内容置零</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">leave</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span></code></pre></div>
 <p>启用拷贝优化后汇编只是 call 了普通构造函数，再没有别的拷贝/移动操作了。原来，编译器默默地帮我们做了这么多事情 ٩(๑&gt;◡&lt;๑)۶</p>
 <p>现在我们知道了编译器会默认帮我们开启拷贝省略，从而我们写的代码一次移动都没做。此外如果关闭了拷贝省略，就会因为 C++17 后编译器默认使用 RVO ，可选使用 NRVO ，所以只有产生了一次移动操作；而 C++11 标准下编译器默认不会帮你做这两件事情，对应产生了两次理应被优化掉的移动操作。</p>
 <p>所以，什么是 RVO 与 NRVO 呢？</p>
 <h5 id="rvo-与-nrvo">RVO 与 NRVO</h5>
 <p>RVO 是英文 return value optimization 的缩写，NRVO 是英文 named return value optimization 的缩写。</p>
 <p>下面的这段解释来自知乎上一位网友的文章（见文末参考[8]） &gt; RVO是返回值优化，就是将返回值的创建省略了。NRVO是函数内具有名字的局部变量充当返回值的时候，它的创建也被省略了。它们的省略结果都是在最终的变量里创建对象。</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 写法一</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Verbose<span class="op">();</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">//写法二</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> v<span class="op">;</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">//写法三</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>move<span class="op">(</span>v<span class="op">);</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 写法一</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Verbose<span class="op">();</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">//写法二</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> v<span class="op">;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">//写法三</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>Verbose create<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  Verbose v<span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">std::</span>move<span class="op">(</span>v<span class="op">);</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>这里首推写法一，因为在使用现代编译器的前提下(C++11后)，会默认将这段代码编译成直接在主调函数帧上原地构造对象，忽略了无编译优化条件下的两次移动操作，也就是我们前文提到的 copy elision。</p>
 <p>如果编译器支持，那么针对写法二会进行 NRVO 优化。 &gt; 在C++没有move的时候，很多编译器实现就支持RVO(return value optimization)和NRVO(named return value optimization)。这两种优化用于在返回值的时候避免不必要的copy。在C++11以后，引入了move，move的存在与copy elision交织在一起。在这里直接给出答案，写法一是推荐的，写法二场景需要就推荐，而写法三是不推荐的。</p>
 <blockquote>
@@ -715,25 +772,25 @@
 <h3 id="开发层优化">开发层优化</h3>
 <h4 id="入参主动转换为右值">入参主动转换为右值</h4>
 <p>设置函数形参为右值引用，入参强制左值转换为右值，这样可以直接降低入参拷贝产生的性能开销。</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> vec<span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span>vec<span class="op">);</span>  <span class="co">// 入参为左值引用</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span><span class="bu">std::</span>move<span class="op">(</span>vec<span class="op">));</span>  <span class="co">// 入参为右值引用</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;----------------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span>  <span class="co">// Output nothing.</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> take<span class="op">(</span><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;&amp;&amp;</span> param_vec<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span> <span class="co">// Output: 6,6,6</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> vec<span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span>vec<span class="op">);</span>  <span class="co">// 入参为左值引用</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    take<span class="op">(</span><span class="bu">std::</span>move<span class="op">(</span>vec<span class="op">));</span>  <span class="co">// 入参为右值引用</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> <span class="st">&quot;----------------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">&amp;</span> n <span class="op">:</span> vec<span class="op">)</span> <span class="bu">std::</span>cout<span class="op"> &lt;&lt;</span> n <span class="op">&lt;&lt;</span> <span class="ch">&#39;,&#39;</span><span class="op">;</span>  <span class="co">// Output nothing.</span></span></code></pre></div>
 <p>对于上面的代码段，左值 vec 在 move() 作用下转变为了一个 xvalue 值，并作为函数 take() 的入参，从输出的结果上看，调用 move() 函数前左值 vec 拥有 <code>vector对象 {6, 6, 6}</code> 的所有权，调用 move() 后， vector 对象所有权转移给了 take() 函数的形参 param_vec ，变量 vec 也就不再拥有对原 vector 对象的所有权了。</p>
 <h2 id="跋">跋</h2>
 <p>总结一下，我们首先讨论了 C++ 对象操作中的构造与赋值这两种行为，接着介绍了左值/右值的概念并阐述了细分右值概念的原因，而紧接的右值引用正是在细分右值后的将亡值做文章，借助右值引用概念，我们引入并讨论了本文的核心内容 —— 移动语义。最后，简单介绍了像 Copy elision 这样的现代 C++ 编译器中的编译优化技术，最后展示了笔者学习过程中所记录的几个最佳实践。</p>
