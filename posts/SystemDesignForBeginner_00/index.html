@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>系统设计入门-概论 &mdash; 消忧录</title>
+
+  <link type="text/css" rel="stylesheet" href="/static/sdist/f030e6f96a3945cb21858125ce5f7b3f.css">
+
+  <script type="text/javascript" src="/static/sdist/ca9e6953d8147e3658832906ad63e0ba.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' href="/static/favicon.ico" type='image/x-icon'/>
+  <style type="text/css">
+   img { mix-blend-mode: multiply; }
+  </style>
+  <meta property="og:author" content="YangLiu" />
+  <meta property="og:title" content="系统设计入门-概论" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://lyyl.me/posts/SystemDesignForBeginner_00/" />
+  <meta property="og:image" content="/static/img/athena.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="系统设计入门-概论" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:url" content="https://lyyl.me/posts/SystemDesignForBeginner_00/" />
+  <meta name="twitter:image" content="/static/img/athena.png" />
+</head>
+<body>
+  <div class="thearticle">
+  
+  <article>
+  
+    <h1>系统设计入门-概论</h1>
+    <p id="blog-p"><span id="blogdesc" class="marginnote">
+    <br><br>
+    <a href="/">home</a> ·
+    
+      <a href="/about/">
+        about</a> ·
+    
+    <a href="/feed.atom">subscribe</a></span></p>
+
+    <subtitle style="font-size:1.3rem;">❥ by YangLiu</subtitle>
+    <subtitle class="sub-date">April 10, 2021 · <span
+    style="font-size: 1.6rem;"><a style="border-bottom-width: 0px !important;"
+    href="https://lyyl.me/posts/SystemDesignForBeginner_00/">&infin;</a></span></subtitle>
+
+    <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="toc告诉我最好有个小标题">TOC告诉我最好有个小标题 :)</h2>
+<p>嗯，又是好几个月没更文章了，这期间做了些力扣题，除去毕设和实习上一些杂七杂八的事情，真正静下心来学习的时间还是很少。不过，目前给自己立的一个最新的Flag是学习系统设计方面的知识。</p>
+<p>想学的原因是自己毕竟用过了 <em>MongoDB, Redis, CDN</em> 这些现代应用系统内常常会涉及到的组件，此外在之前折腾博客的时候也已经简单接触过了域名服务、缓存这样很有实用性的东西。也算在垒土之上，学着试着，看看能不能筑几层台。</p>
+<h3 id="none">None</h3>
+<p>这里先放一张表，表里记录了常见设备的时间性能（在想Latency在这里能不能给译作 —— 延迟？或者 —— 开销？）。这张表搬自有名的 <a href="https://gist.github.com/jboner/2841832#file-latency-txt-L16"><em>Latency Numbers Every Programmer Should Know</em></a>，意译过来就是“程序员必知的设备开销量级”</p>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>开销</th>
+<th>天文质量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L1 缓存引用</td>
+<td>0.5 ns</td>
+<td>1/2个地球或5个火星</td>
+</tr>
+<tr class="even">
+<td>分支预测错误</td>
+<td>5 ns</td>
+<td>5个地球</td>
+</tr>
+<tr class="odd">
+<td>L2 缓存引用</td>
+<td>7 ns</td>
+<td>7个地球</td>
+</tr>
+<tr class="even">
+<td>互斥锁·加/解锁</td>
+<td>25 ns</td>
+<td>天王星 + 海王星</td>
+</tr>
+<tr class="odd">
+<td>主存的引用</td>
+<td>100 ns</td>
+<td>土星 + 5个地球</td>
+</tr>
+<tr class="even">
+<td>在1Gbps带宽下以Zippy算法压缩1K字节</td>
+<td>3000 ns</td>
+<td>10个木星</td>
+</tr>
+<tr class="odd">
+<td>在1Gbps带宽下发送1K字节</td>
+<td>10,000 ns</td>
+<td>全太阳系行星质量的20倍</td>
+</tr>
+<tr class="even">
+<td>从固态硬盘中随机读取4K字节</td>
+<td>150,000 ns</td>
+<td>1.6倍的红矮星 Wolf 359</td>
+</tr>
+<tr class="odd">
+<td>从内存中顺序读取1M字节</td>
+<td>250,000 ns</td>
+<td>四分之一个太阳</td>
+</tr>
+<tr class="even">
+<td>从固态硬盘中顺序读取1M字节</td>
+<td>1,000,000 ns = 1ms</td>
+<td>一个太阳</td>
+</tr>
+<tr class="odd">
+<td>磁盘的seek操作</td>
+<td>10,000,000 ns = 10 ms</td>
+<td>10个太阳</td>
+</tr>
+<tr class="even">
+<td>从磁盘上顺序读取1M字节</td>
+<td>20,000,000 ns = 20 ms</td>
+<td>一个红巨星 R136a2</td>
+</tr>
+<tr class="odd">
+<td>一个网络报文从美国加州到荷兰的往返时间</td>
+<td>150,000,000 ns = 150 ms</td>
+<td>一个中等大小的黑洞</td>
+</tr>
+</tbody>
+</table>
+<p>当然，上面这张表是2012年时候的数据，作为补充，这里有份<a href="https://github.com/sirupsen/napkin-math#numbers">17年的测试数据</a>。根据摩尔定律（虽然它的斜率越来越平缓了），现在的内存和SSD等硬件的读写性能远非昔日能比【这不，马斯克的 starlink 也要上线了么，声称其全球平均时延 30ms ！】，同时这些数据也跟它的测试平台和硬件的体系结构强相关，所以表里的内容基本都过时了。但可以给我们的一个启发是，熟悉各种硬件性能对软件设计，尤其是系统设计，应该大有裨益【咱只是初学，有多裨益也不敢太肯定hhh】</p>
+<h3 id="似懂非懂的问题">似懂非懂的问题</h3>
+<p>我一直有些似懂非懂的问题，这些问题也持续困扰着自己，比如：为什么我的程序读写文件很慢（也就是CPU访问硬盘很慢？）、为什么有了Mongo这样支持高并发场景的数据库了业务上还需要缓存这样的东西？为什么你的博客第一次打开很慢，以后再打开就特别快了呢？……（简单地两句话是能解释的，但自己对这些问题的把握不够清晰，说到底还是东西学得不够扎实）</p>
+<p>可以看到这些都是些很实际的小问题，这些实际问题的解决往往离不开设计良好的系统支持，不期望能学会“系统设计”【小菜竟然敢提“学会”？】，而是尽量搞明白设计中的一些准则，熟悉各种常用的组件。这就算达到自己的预期了吧hhh【我还是太菜了，Flag立着立着好像自己就要倒了;-(】</p>
+<h3 id="怎么学习">怎么学习？</h3>
+<p>学习一门全新的东西，我们总要从最基础的东西抓起。比如初学一门编程语言，绕不开的就是看它的循环、分支怎么写，学用它的标准库，然后把握语言的突出特性，比如：哎你看现在人人都学Python是为啥咧？这其实就很好反映了Python本身是一个语法简明的解释型语言，学习的正循环建立的快，对初学者很是友好，不用考虑编译，熟练的上手就是半小时上百行的代码量，写起来就很舒心；哎我听说Golang最近很火拿来写微服务很合适，这就跟它语言层面对并发编程的支持有关系；哎我又听说最近那个Rust也很棒呀，特别安全就是，感觉未来区块链和高性能计算它会一枝独秀噢，这都跟它语言层面引入了所有权和生命期这种东西有关了。</p>
+<p>“搜嘎~ 可是你还是没有讲明白怎么学习系统设计呀？！“</p>
+<p>“啊这…其实怎么学习我也没谱hhh【明明都告诉咱是小菜了】”</p>
+<p>这里贴一个知乎上的答案，里边谈了该如何学习系统设计：<a href="https://zhuanlan.zhihu.com/p/81953907">浅谈系统设计</a></p>
+<p>我的理解是这东西只能多coding，比如以后有时间自己去实现一个kv数据库，或者自己去做一做微服务（之前试过，但浅尝辄止了），完了再就是多积累经验吧，这不可能像刷题一样短期内能见效，得讲静水深流的时候也只能让它慢慢流了hhh。</p>
+<h3 id="学到什么时候才能设计">学到什么时候才能设计？</h3>
+<p>其实这个问题的答案很明显，只能等自己功力足够深厚的时候才能谈得上“设计”吧，在这之前的阶段，自己写的程序大概能做好“我实现了xxx”并能确保代码的可读和鲁棒就已经是一枚及格的“螺丝钉”了hhh。以自己的经验来讲，看一个人写的文章、聊的东西其实就能很自然地展现他的功底到底怎样，比如下面注释2的叫<code>Draveness</code>的博主，他的文章满是谈设计、剖析设计思路，远非csdn上的那种大段大段地贴代码然后一顿解释的文章（还有很多是半懂不懂的瞎解释）。</p>
+<h3 id="资源推介">资源推介</h3>
+<p>最后，推荐一些个人认为比较好的系统设计方面的学习资源：</p>
+<blockquote>
+<p><code>专门给我这样的小菜准备的好东西：https://github.com/donnemartin/system-design-primer</code></p>
+</blockquote>
+<blockquote>
+<p><code>博主是K8S的贡献者【此处应留空，用来膜拜大神】，很多设计上的问题他都讲的很好：https://draveness.me/</code></p>
+</blockquote>
+<blockquote>
+<p><code>这是一个精简的爬虫框架，可根据使用需求扩展之：https://github.com/kingname/Tinepeas</code></p>
+</blockquote>
+<blockquote>
+<p><code>设计一个K-V数据库：http://blog.gainlo.co/index.php/2016/06/14/design-a-key-value-store-part-i/</code></p>
+</blockquote>
+</body>
+</html>
+
+  
+  </article>
+  
+  </div>
+  <div class="thefooter">
+    <p>Any way the wind blows.
+    <br><br>© Copyright, <i>2019-2022</i>
+  </div> <!-- footer end -->
+</body>
+</html>

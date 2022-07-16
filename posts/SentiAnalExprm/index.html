@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>记一次实验 &mdash; 消忧录</title>
+
+  <link type="text/css" rel="stylesheet" href="/static/sdist/f030e6f96a3945cb21858125ce5f7b3f.css">
+
+  <script type="text/javascript" src="/static/sdist/ca9e6953d8147e3658832906ad63e0ba.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' href="/static/favicon.ico" type='image/x-icon'/>
+  <style type="text/css">
+   img { mix-blend-mode: multiply; }
+  </style>
+  <meta property="og:author" content="YangLiu" />
+  <meta property="og:title" content="记一次实验" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://lyyl.me/posts/SentiAnalExprm/" />
+  <meta property="og:image" content="/static/img/athena.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="记一次实验" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:url" content="https://lyyl.me/posts/SentiAnalExprm/" />
+  <meta name="twitter:image" content="/static/img/athena.png" />
+</head>
+<body>
+  <div class="thearticle">
+  
+  <article>
+  
+    <h1>记一次实验</h1>
+    <p id="blog-p"><span id="blogdesc" class="marginnote">
+    <br><br>
+    <a href="/">home</a> ·
+    
+      <a href="/about/">
+        about</a> ·
+    
+    <a href="/feed.atom">subscribe</a></span></p>
+
+    <subtitle style="font-size:1.3rem;">❥ by YangLiu</subtitle>
+    <subtitle class="sub-date">August 09, 2020 · <span
+    style="font-size: 1.6rem;"><a style="border-bottom-width: 0px !important;"
+    href="https://lyyl.me/posts/SentiAnalExprm/">&infin;</a></span></subtitle>
+
+    <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<pre class="shell"><code>我以后可以在GitHub上写日记叻         __  upset = {
+      __  __ ____   _____ ___   / /_     &quot;time&quot;: &quot;一天半&quot; ，
+     / / / // __ \ / ___// _ \ / __/     &quot;task&quot;: &quot;老师布置的简单学术考核&quot; ，
+    / /_/ // /_/ /(__  )/  __// /_       &quot;result&quot;: &quot;没能按时完成&quot; ,
+    \__,_// .___//____/ \___/ \__/       &quot;quote&quot;: &quot;我妈:机会留给有准备的人&quot;，
+         /_/                             &quot;mood&quot;: &quot;那我一定是那个没有准备好的笨蛋 ☹&quot;
+                                          }
+</code></pre>
+<p><img src='https://img.shields.io/badge/python-v3.8.3-blue' align='left' /><img src='https://img.shields.io/badge/jieba-v0.42.1-green' align='left' /><img src='https://img.shields.io/badge/gensim-v3.8.3-purple' align="left" /></br></p>
+<h2 id="实验内容">实验内容</h2>
+<ul>
+<li>针对近期社媒上的热点话题「肖战工作室致歉信」，分别从国内主流社媒平台「微博」、「知乎」、「抖音」、「快手」以及「B站」的PC/移动端 web页面爬取该热点事件的相关言论。根据所获取的数据集，藉由数据可视化的途径，分析不同平台用户关于同一事件发言的情感倾向（积极/消极/中性）的差别，并总结各情感倾向下分别表达了哪些观点。</li>
+</ul>
+<h2 id="实验环境">实验环境</h2>
+<ul>
+<li>硬件平台： <img src="https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E5%B9%B3%E5%8F%B0.png" alt="硬件平台" /></li>
+<li>开发环境：CPython-3.8.3
+<ul>
+<li>调用库：requests, re, pymongo, jieba, ​ pandas, numpy，gensim 等（详见requirements.txt)</li>
+</ul></li>
+<li>编辑器：VIM 8.2.0914-0</li>
+<li>调试器：IPython-7.15.0 + Ipdb-0.13.3</li>
+<li>数据库：MonogoDB ( shell version v4.2.6 )</li>
+<li>其它工具：Mozilla Firefox-78.0.2(for Manjaro Linux ×64)</li>
+</ul>
+<h2 id="实验方案">实验方案</h2>
+<h3 id="实验思路">实验思路：</h3>
+<ul>
+<li>本次实验选取社媒上的热点话题「肖战工作室致歉信」；</li>
+<li>借助中间人抓包，分析并测试各社媒平台下的目标接口，分别从国内主流社媒平台「微博」、「知乎」、「抖音」、「快手」以及「B站」的PC/移动端的 web页面 爬取该热点事件的相关言论；</li>
+<li>通过 CPython下的 第三方HTTP库「requests」实现正向代理，请求接口，爬取数据；</li>
+<li>根据爬取得到的原始数据，通过 内置模块「re」进行数据预处理对获取的相关言论进行数据预处理后入库（同时将保存为 ./metadata/ 下的 .csv 或 .txt 文件）；</li>
+<li>采用网络上下载的停用词和他人收集的语料，通过第三方库「结巴分词」对语料进行分词。 # 实验方法： ## 数据源的选取：</li>
+<li><input type="checkbox" disabled="" checked="" />
+<span style="color: #4fc3f7">知乎：</span><code>如何看待 7 月 14 日肖战工作室发布的致歉信，承认对粉丝管理上存在疏忽和缺位？]:</code> <a href="https://www.zhihu.com/question/406914039">https://www.zhihu.com/question/406914039</a></li>
+<li><input type="checkbox" disabled="" checked="" />
+<span style="color: #f48fb1">B站：</span><code>【抵制肖战】数据分析肖战现状，问问肖战粉丝:举世皆敌的感觉如何？:</code> <a href="https://www.bilibili.com/video/BV1QZ4y1M7Yt?from=search&amp;seid=2802586105820332741">https://www.bilibili.com/video/BV1QZ4y1M7Yt?from=search&amp;seid=2802586105820332741</a></li>
+<li><input type="checkbox" disabled="" checked="" />
+<span style="color: #f4d03f">微博：</span><code>新浪娱乐 #肖战工作室致歉信#:</code> <a href="https://weibo.com/1642591402/JbcWS3QUf?type=comment#_rnd1595047751155">https://weibo.com/1642591402/JbcWS3QUf?type=comment#_rnd1595047751155</a></li>
+<li><input type="checkbox" disabled="" />
+<span style="color: #8e44ad">抖音： </span><code>待完成</code></li>
+<li><input type="checkbox" disabled="" />
+<span style="color: #ff5722">快手： </span><code>待完成</code></li>
+</ul>
+<h3 id="爬取模块的设计">爬取模块的设计：</h3>
+<ul>
+<li>目标接口分析：
+<ul>
+<li>知乎：接口参数构成较简单，且无明显的访问限制，故为提高定向爬取效率，采用多线程爬取。</li>
+<li>B站：接口参数构成较简单，限定接口返回数 &lt;20 即可，生成 url列表 供线程池的调用，以实现多线程爬取操作。</li>
+<li>微博：接口参数构成较复杂，采用通过模拟登陆微博PC端后进行相关接口的爬取操作，微博接口在模拟登陆过程提交的POST请求中的有效载荷携带了用户登陆输入的账号、密码等信息，且该信息通过了 RSA 算法进行加密。需要注意的是，短时间内切勿通过脚本多次尝试模拟登陆微博与下行数据，否则将触发微博的访问频率限制。受限后，仅能通过等待较长时间后才可解封（对于单一 IP 而言）。</li>
+</ul></li>
+<li>爬取模块的实现：
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+知乎爬虫：同B站爬虫，通过multiprocessing.dummpy的Pool方法实现多线程爬取</li>
+<li><input type="checkbox" disabled="" checked="" />
+B站爬虫：B站视频评论区的评论接口对单一 IP 有访问频率限制，若超过其访问限制， 则返回「code: ‘412’」, 「‘message’: 请求被拦截」字段。需等待一段时间后才可解封。</li>
+<li><input type="checkbox" disabled="" checked="" />
+微博爬虫：通过模拟登陆的途径，爬取特定微博消息下的所有评论。微博的接口需要通过每一次请求返回得到相应参数，这些参数将用于构造下一次请求的参数体，同时由于微博页面的针对单一 IP 的限流措施，故微博抓取模块采用同步单线程模型实现。</li>
+<li><input type="checkbox" disabled="" />
+抖音爬虫：<code>待完成</code></li>
+<li><input type="checkbox" disabled="" />
+快手爬虫：<code>待完成</code></li>
+<li><input type="checkbox" disabled="" checked="" />
+所设计及实现的爬虫将严格遵守相应网站下 .robots.txt 中的规定，且爬取数据仅供学习使用</li>
+</ul></li>
+</ul>
+<h3 id="数据预处理的实现">数据预处理的实现：</h3>
+<ul>
+<li>在各爬虫将爬取到的数据入库前，先通过 re.findall(‘[e00-fa5]+’) 方法正则匹配中文内容， 再经由 ’ ’.join() 方法将匹配的中文子串拼接为一个字符串，随后入库存储</li>
+<li>对 语料 进行正则匹配，去除其中包含的非中文内容（不足：会误筛英文句词）以及脏数据，使用网络上他人制作的停用词文件，借助「结巴分词」实现语料的虚词、无意义动词、名词的去除后，入库</li>
+</ul>
+<h3 id="数据挖掘的实现">数据挖掘的实现：</h3>
+<ul>
+<li>词向量构建
+<ul>
+<li>采用基f于「Distributed Representation」的 word2vec 词嵌入方法，对入库后的干净文本，训练语言模型，在训练的过程中，将用于训练的每个输入词语进行降维操作，每个词都映射成一个唯一的n维向量（本实验采用n=300)，并保存生成的词向量模型。通过 word2vec 来实现词向量的构建</li>
+<li>对数据进行随机切分，生成测试训练集和测试集，生成训练集和测试集计算每段话的向量</li>
+</ul></li>
+<li>训练SVM模型
+<ul>
+<li>对输入语句进行分类，实现情感判断</li>
+</ul></li>
+<li>补充：
+<ul>
+<li>在修复了细小的 BUG 后，所训练的模型最终起到了情感分析的作用，为了对中性层标签提供可靠的语料支持，还手动增加了客观表述的维基中文语料 demo，以实现对中性层的训练。</li>
+</ul></li>
+</ul>
+<h3 id="数据库存储的设计">数据库存储的设计：</h3>
+<ul>
+<li>由于 MongoDB 在高并发下写入性能优良，且自己所设计的爬虫均采用 基于 Python 多线程编程的模型实现，为 I/O 密集型进程，具备一定的并发量；</li>
+<li>存储的数据对象是以 RESTful 下的 JSON 格式为主，存取对象（包括爬取数据、语料）的事务性较弱，且存取对象基本为 键值对数据，契合MongoDB自带的 BSON 数据类型；</li>
+<li>对于插入操作，嵌套的列表/字典对象较扁平，其中的多数可通过python下的一次遍历O(n)获取到键值对的值；对于查询操作，MongoDB是基于 B树 的索引结构，查询一条数据所需要的平均随机IO次数会比 SQL 依赖的 B+ 树少，故单条数据的查询性能优于 SQL； 综上，采用 MongoDB 作为数据库，而不考虑以构造联表的形式进行存储的关系型数据库；</li>
+</ul>
+<h3 id="数据可视化的实现">数据可视化的实现:</h3>
+<h4 id="知乎">知乎：</h4>
+<pre><code>     - 词云：
+    ![知乎-词云图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E7%9F%A5%E4%B9%8E1.webp#pic_center)
+     - 饼图：
+    ![知乎-饼图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E7%9F%A5%E4%B9%8E2.webp#pic_center)</code></pre>
+<h4 id="微博">微博：</h4>
+<pre><code>     - 词云：
+    ![微博-词云图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E5%BE%AE%E5%8D%9A1.webp#pic_center)
+     - 饼图：
+    ![微博-饼图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E5%BE%AE%E5%8D%9A2.webp#pic_center)</code></pre>
+<h4 id="b-站">B 站：</h4>
+<pre><code>     - 词云：
+    ![B站-词云图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/B%E7%AB%991.webp#pic_center)
+     - 饼图：
+    ![B站-饼图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/B%E7%AB%992.webp#pic_center)</code></pre>
+<h4 id="对比直方图">对比直方图：</h4>
+<pre><code>    ![对比直方图](https://myblog-1304161589.cos.ap-beijing.myqcloud.com/sentiAnal/%E7%9B%B4%E6%96%B9%E5%9B%BE.webp#pic_center)</code></pre>
+<p><span style="color:#a8a8a8;">（注：B站的 negative矩形（红色）被 neutral矩形（黄色）遮挡住了，可以饼图为参考）</span></p>
+<h2 id="实验结论">实验结论</h2>
+<ul>
+<li>通过可视化的饼图得知：关于「肖战工作室致歉」这个话题，在知乎上的相关回答中，持消极意见的人数占其测试集的 50.2%，B站上持消极意见的评论占其测试集的 36.0%，微博上持消极意见的评论占其测试集的 29.2%，因此，可推断：在各自的取样下，知乎上存在更多的网友对该事件持消极态度，B站上则有更多的人对该事件保持中性的态度。</li>
+<li>通过可视化的条形图得知：半数微博用户持消极态度，B站上的用户更多是持中性态度，微博上的用户持积极态度与持消极和中性态度之和的用户人数大致相等。</li>
+<li>通过可视化的词云图得知：知乎上的用户所持的消极态度所表达的主要观点为：「肖战应该道歉」； B站上的用户所持的消极态度所表达的主要观点有：「恶心人」、「肖战必糊」 微博上的用户所持的积极态度所表达的主要观点有：「构建良好网络环境」、「支持肖战」</li>
+<li>综上可猜测：可能由于不同社交平台上用户群体的主要构成不同，体现为不同用户群体对于同一事件看法/态度形成了较大的差异性。</li>
+</ul>
+<h2 id="使用指南">使用指南</h2>
+<ul>
+<li><p>解压 「中文信息处理-任务三.zip」</p></li>
+<li><p>安装依赖：</p>
+<pre class="shell"><code>pip install -r requirements.txt</code></pre></li>
+<li><p>将工作目录切换至该文件夹下，运行 app.py 文件</p></li>
+</ul>
+<h2 id="实验相关数据及代码">实验相关数据及代码</h2>
+<p>详见: ./src ./metadata 目录下的相关文件</p>
+<h2 id="to-do-list">To-Do List</h2>
+<ul>
+<li>移动平台流视频社媒评论 的爬取</li>
+<li>代码健壮性和复用性较差，有待重构</li>
+<li><span style="border-bottom:2px dashed #FF0000;"><span style="color:      #FF0000">自己真的是啥都不懂 /(ㄒoㄒ)/</span></span></li>
+<li>训练语料的选取有待进一步地优化</li>
+<li>训练的结果的准确性未进行校核，情感分析的可靠性存疑！</li>
+</ul>
+<h2 id="引用参考">引用参考</h2>
+<ul>
+<li>文献：
+<ul>
+<li><blockquote>
+<p><code>word2vec Parameter Learning Explained - Xin Rong</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><code>Efficient Estimation of World Representations in Vector Space - Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean - Google 2013</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><code>《面向多源社交网络舆情的情感分析算法研究》彭浩,朱望鹏 ,赵丹丹,吴松洋《信息技术》2019年第2期</code></p>
+</blockquote></li>
+</ul></li>
+<li>书籍：
+<ul>
+<li><blockquote>
+<p><code>《流畅的Python》p424  Luciano Ramalho[巴西] 著  人民邮电出版社 2017年5月第1版</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><code>《左手MongoDB，右手Redis》p2  谢乾坤著  电子工业出版社 2019年2月第1版</code></p>
+</blockquote></li>
+</ul></li>
+<li>文档和源码:
+<ul>
+<li><blockquote>
+<p><em>https://radimrehurek.com/gensim/auto_examples/tutorials/ run_word2vec.html#sphx-glr-auto-examples-tutorials-run-word2vec-py</em> <code>《gensim 中文文档》</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><em>https://www.kancloud.cn/luponu/sklearn-doc-zh/889722</em> <code>《scikit-learn 中文文档》</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><em>https://github.com/fxsjy/jieba</em> <code>《jieba 中文文档》</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><em>https://github.com/brightmart/nlp_chinese_corpus</em> <code>实验语料来源</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><em>https://github.com/Python3Spiders/WeiboSuperSpider</em> <code>微博爬虫源码参考</code></p>
+</blockquote></li>
+<li><blockquote>
+<p><em>https://github.com/maowankuiDji/Word2Vec-sentiment</em> <code>情感分析部分源码参考&amp;语料来源</code></p>
+</blockquote></li>
+</ul></li>
+</ul>
+</body>
+</html>
+
+  
+  </article>
+  
+  </div>
+  <div class="thefooter">
+    <p>Any way the wind blows.
+    <br><br>© Copyright, <i>2019-2022</i>
+  </div> <!-- footer end -->
+</body>
+</html>
